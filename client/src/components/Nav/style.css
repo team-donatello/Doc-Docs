@@ -1,0 +1,13 @@
+.navbar{
+    background-color: aqua;
+    margin-bottom: 10px;
+    border-bottom: solid black 2px;
+}
+.navbar-band{
+    color: black;
+}
+
+.nav-item{
+    color: black;
+    margin-left: 15px;
+}
