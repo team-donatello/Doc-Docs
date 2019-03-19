@@ -2,7 +2,6 @@
 
 # dependencies
 client/node_modules/
-client/build/
 node_modules/
 .pnp/
 .pnp.js
@@ -11,6 +10,7 @@ node_modules/
 coverage/
 
 # production
+client/build/
 build/
 
 # misc
