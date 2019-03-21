@@ -38,13 +38,6 @@ class Scheduler extends Component {
             //day appoinment
             events: [
                 { id: 1, text: "Bob", start: "2019-03-02T00:00:00", end: "2019-03-02T00:00:00", resource: "A" },
-                { id: 2, text: "Sara", start: "2019-03-03T00:00:00", end: "2019-03-03T00:00:00", resource: "C", barColor: "#38761d", barBackColor: "#93c47d", backColor: "#cc0000" , color: "white"},
-                { id: 3, text: "Mark", start: "2019-03-02T00:00:00", end: "2019-03-02T00:00:00", resource: "D", barColor: "#f1c232", barBackColor: "#f1c232" ,backColor: "#e69138"},
-                { id: 3, text: "Dylan", start: "2019-03-04T00:00:00", end: "2019-03-04T00:00:00", resource: "E", barColor: "#cc0000", barBackColor: "#ea9999", backColor: "#3c78d8" },
-                { id: 4, text: "Bob", start: "2019-03-02T00:00:00", end: "2019-03-02T00:00:00", resource: "F" },
-                { id: 5, text: "Sara", start: "2019-03-03T00:00:00", end: "2019-03-03T00:00:00", resource: "G", barColor: "#38761d", barBackColor: "#93c47d", backColor: "#cc0000" },
-                { id: 6, text: "Mark", start: "2019-03-04T00:00:00", end: "2019-03-04T00:00:00", resource: "H", barColor: "#f1c232", barBackColor: "#f1c232" , backColor: "#e69138"},
-                { id: 7, text: "Dylan", start: "2019-03-05T00:00:00", end: "2019-03-05T00:00:00", resource: "I", barColor: "#cc0000", barBackColor: "#ea9999",backColor: "#6aa84f" }
             ]
         };
 
@@ -69,6 +62,17 @@ class Scheduler extends Component {
             default:
                 throw new Error("Invalid zoom level");
         }
+    }
+    getEvents(){
+
+    }
+    componentDidMount(){
+        getEvents();
+        this.setState({
+            //get appointments from database
+            events: "placeholder" //array of event objects
+        })
+
     }
     
     render() {
