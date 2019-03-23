@@ -37,7 +37,7 @@ class Scheduler extends Component {
             ],
             //day appoinment
             events: [
-                { id: 1, text: "Bob", start: "2019-03-02T00:00:00", end: "2019-03-02T00:00:00", resource: "A" },
+                { id: 1, text: "Bob", start: "2019-03-02T00:00:00", end: "2019-03-02T00:00:00", resource: "A" }
             ]
         };
 
@@ -64,13 +64,14 @@ class Scheduler extends Component {
         }
     }
     getEvents(){
-
+        return [{ id: 1, text: "Bob", start: "2019-03-02T00:00:00", end: "2019-03-02T00:00:00", resource: "A" }]
     }
     componentDidMount(){
-        getEvents();
+        let dbEvents = this.getEvents();
         this.setState({
             //get appointments from database
-            events: "placeholder" //array of event objects
+            events: dbEvents //array of event objects
+            //
         })
 
     }
