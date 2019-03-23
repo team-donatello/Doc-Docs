@@ -67,7 +67,7 @@ class Scheduler extends Component {
 
     }
     componentDidMount(){
-        getEvents();
+        this.getEvents();
         this.setState({
             //get appointments from database
             events: "placeholder" //array of event objects
