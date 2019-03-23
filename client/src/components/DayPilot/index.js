@@ -35,3 +35,4 @@ class Zoom extends Component {
 }
 
 export default Zoom;
+
