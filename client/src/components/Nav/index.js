@@ -10,7 +10,7 @@ function Nav() {
                     Doc Docs
                 </a>
                 <a className="nav-item " href="/home">Home</a>
-                <a className="nav-item " href="/scheduler">Scheduler</a>
+                {/* <a className="nav-item " href="/scheduler/:name">Scheduler</a> */}
                 <a className="nav-item " href="/login">Login</a>
            
         </nav >
