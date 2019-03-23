@@ -3,13 +3,12 @@ const Schema = mongoose.Schema;
 
 const patientSchema = new Schema({  
   name: { type: String, required: true },
-  age: { type: String, required: true },
+  age: { type: Number, required: true },
   gender: { type: String, required: true },
-  height: { type: String, required: true },
-  weight: { type: String, required: true },
+  height: { type: Number, required: true },
+  weight: { type: Number, required: true },
   heartrate: { type: Number, required: true },
   bloodpressure: { type: Number, required: true },
-  bodyweight: { type: Number, required: true },
 
   medications: Array,
 
