@@ -43,10 +43,54 @@ function PatientForm({ children }) {
                     <input type="bloodpressure" class="form-control" id="exampleFormControlInput1" placeholder="110/83">
                 </div>
 
+                {/* Pull dropdown from API here. Possibly a select instead of an input*/}
                 <div class="form-group">
                     <label for="exampleFormControlInput1">Medications</label>
                     <input type="age" class="form-control" id="exampleFormControlInput1" placeholder="21">
                 </div>
+
+                <div class="form-group">
+                    <label for="exampleFormControlInput1">Pre-existing Conditions</label>
+                    <input type="preExistingConditions" class="form-control" id="exampleFormControlInput1" placeholder="Diabetes">
+                </div>
+
+                <div class="form-group">
+                    <label for="exampleFormControlInput1">Allergies</label>
+                    <input type="allergies" class="form-control" id="exampleFormControlInput1" placeholder="Penicillin">
+                </div>
+
+                <div class="form-group">
+                    <label for="exampleFormControlInput1">Surgeries</label>
+                    <input type="surgeries" class="form-control" id="exampleFormControlInput1" placeholder="Transplant">
+                </div>
+
+                {/* Pull dropdown from docs db to populate. */}
+                <div class="form-group">
+                    <label for="exampleFormControlInput1">Physician</label>
+                    <input type="doctor" class="form-control" id="exampleFormControlInput1" placeholder="21">
+                </div>
+
+                <div class="form-group">
+                    <label for="exampleFormControlInput1">Amount Due</label>
+                    <input type="bill" class="form-control" id="exampleFormControlInput1" placeholder="300.00">
+                </div>
+
+                <div class="form-group">
+                    <label for="exampleFormControlInput1">Next Appointment</label>
+                    <input type="nxtappt" class="form-control" id="exampleFormControlInput1" placeholder="01/01/2020">
+                </div>
+
+                <div class="form-group">
+                    <label for="exampleFormControlInput1">Email</label>
+                    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="john.doe@gmail.com">
+                </div>
+
+                <div class="form-group">
+                    <label for="exampleFormControlInput1">Phone Number</label>
+                    <input type="phone" class="form-control" id="exampleFormControlInput1" placeholder="555-555-5555">
+                </div>
+
+
 
   <div class="form-group">
     <label for="exampleFormControlTextarea1">Example textarea</label>
