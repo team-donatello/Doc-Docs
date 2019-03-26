@@ -156,8 +156,10 @@ class AddPatient extends Component {
                                 { name: "5:00 PM", id: "I" },
                                 { name: "6:00 PM", id: "J" }
                             ]}
-                            events={[{ id: 2, text: "Event 2", start: "2019/03/02", end: "2019/03/08", resource: "C", barColor: "#38761d", barBackColor: "#e69138", backColor: "#3c78d8" },
-                            { id: 3, text: "Event 3", start: "2019-03-02T00:00:00", end: "2019-03-08T00:00:00", resource: "D", barColor: "#f1c232", barBackColor: "#f1c232" }]}
+                            events={this.state.schedulers.filter(scheduler => scheduler.doctorname === this.state.doctorname)}
+                                
+                            //     [{ id: 2, text: "Event 2", start: "2019/03/02", end: "2019/03/08", resource: "C", barColor: "#38761d", barBackColor: "#e69138", backColor: "#3c78d8" },
+                            // { id: 3, text: "Event 3", start: "2019-03-02T00:00:00", end: "2019-03-08T00:00:00", resource: "D", barColor: "#f1c232", barBackColor: "#f1c232" }]}
 
 
                         // this.state.schedulers.filter(scheduler => scheduler.doctorname === "Jon123")}
