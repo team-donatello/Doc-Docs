@@ -19,21 +19,12 @@ const patientSchema = new Schema({
   name: { type: String, required: true },
   age: { type: Number, required: true },
   gender: { type: String, required: true },
-<<<<<<< HEAD
-  height: { type: Number, required: true },
-  weight: { type: Number, required: true },
-  heartrate: { type: Number, required: true },
-  bloodpressure: { type: Number, required: true },
-=======
-<<<<<<< HEAD
-  date: { type: Date, default: Date.now }
-=======
+  date: { type: Date, default: Date.now },
   height: { type: String, required: true },
   weight: { type: String, required: true },
   heartrate: { type: Number, required: true },
   bloodpressure: { type: Number, required: true },
   bodyweight: { type: Number, required: true },
->>>>>>> 14000fe2e36bf5a67d24145337c892637406afe8
 
   medications: Array,
 
@@ -55,24 +46,8 @@ const patientSchema = new Schema({
 
   phone: Number
 
-<<<<<<< HEAD
-=======
->>>>>>> master
->>>>>>> 14000fe2e36bf5a67d24145337c892637406afe8
 });
 
 const Patient = mongoose.model("Patient", patientSchema);
 
 module.exports = Patient;
-<<<<<<< HEAD
-
-<<<<<<< HEAD
-
-
-
-
-
-=======
-=======
->>>>>>> master
->>>>>>> 14000fe2e36bf5a67d24145337c892637406afe8
