@@ -1,11 +1,10 @@
 import React, { Component } from "react";
 import Jumbotron from "../components/Jumbotron";
 import { Col, Row, Container } from "../components/Grid";
-// import LoginPage from "../components/Login";
 import API from "../utils/API";
 import { Input, FormBtn, PasswordInput } from "../components/Form";
 // import { Link } from "react-router-dom";
-// import SchedulerPage from "../components/Scheduler";
+
 
 class Login extends Component {
     state = {
@@ -79,20 +78,10 @@ class Login extends Component {
                             <FormBtn
                                 disabled={!this.state.username && this.state.password}
                                 onClick={this.handleFormSubmit}
-                                >  {/*<Link to={"/scheduler"}> */}                                   
-                                    Login                                
-                                 {/* </Link>*/}
+                                >                                     
+                                    Login                             
                             </FormBtn>
-                            {/* <SchedulerPage>
-
-                            </SchedulerPage> */}
-                            {/* <Link to = {{
-                                pathname: '/scheduler',
-                                state: {
-                                    loginDoctorName : true
-                                }
-                            }}>Nikunj</Link> */}
-                                
+                                                  
 
                         </Col>
                     </Row>

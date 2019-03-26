@@ -14,7 +14,7 @@ class PatientsDetails extends Component {
         name: "",
         age: "",
         gender: "",
-        data: ""
+        data: "",        
     };
     componentDidMount() {
         API.getSchedulerWithID(this.props.match.params.id)
@@ -32,8 +32,7 @@ class PatientsDetails extends Component {
             .catch(err => console.log(err));
 
     }
-
-
+    
     render() {
         return (
             <Container fluid>
@@ -47,19 +46,19 @@ class PatientsDetails extends Component {
                     </Col>
                 </Row>
                 <Row>
-                    <Col size="md-10 md-offset-1">
+                    <Col size="md-12 md-offset-1">
                         <h2>
                             {this.state.patient.filter(patientdetails => {
                                 if (patientdetails.name === this.state.patientScheduler.text) {
                                     this.setState.patientAllDetail = patientdetails;
-                                    this.state.name= patientdetails.name
-                                    this.state.age= patientdetails.age
-                                    this.state.gender= patientdetails.gender
-                                    this.state.date= patientdetails.date
-                                    console.log(patientdetails.name + patientdetails.age + patientdetails._id + patientdetails.gender + patientdetails.date);
+                                    this.state.name = patientdetails.name
+                                    this.state.age = patientdetails.age
+                                    this.state.gender = patientdetails.gender
+                                    this.state.date = patientdetails.date
+                                    // console.log(patientdetails.name + patientdetails.age + patientdetails._id + patientdetails.gender + patientdetails.date);
 
                                 }
-                                return console.log("text display : " + this.state.patientScheduler.text + " name : " + patientdetails.name + " age : " + patientdetails.age);
+                                // return console.log("text display : " + this.state.patientScheduler.text + " name : " + patientdetails.name + " age : " + patientdetails.age);
 
                             })}
 
@@ -68,8 +67,8 @@ class PatientsDetails extends Component {
                             name={this.state.name}
                             age={this.state.age}
                             gender={this.state.gender}
-                            date={this.state.date}                            
-                            >
+                            date={this.state.date}
+                        >
 
                         </Accordion>
                         {/* <Accordion></Accordion> */}
@@ -77,12 +76,15 @@ class PatientsDetails extends Component {
                     </Col>
                 </Row>
                 <Row>
-                    <Col size="md-2">
+                    <Col size="md-2 md-offset-1">
                         <Link to={{
                             pathname: '/scheduler/' + this.props.match.params.name
                         }}
                         >← Back to Scheduler</Link>
                     </Col>
+                </Row>
+                <Row size="md-12">
+                    
                 </Row>
             </Container>
         )

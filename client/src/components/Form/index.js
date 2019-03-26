@@ -50,7 +50,7 @@ export function A(props) {
 export function Select(props) {
   return (
     <div className="form-group">     
-      <select className="form-control" id="exampleFormControlSelect1">
+      <select className="form-control" id="exampleFormControlSelect1" {...props}>
         {props.children}        
       </select>
     </div>
