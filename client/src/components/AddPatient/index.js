@@ -35,12 +35,12 @@ function PatientForm({ children }) {
 
                 <div class="form-group">
                     <label for="exampleFormControlInput1">Heartrate</label>
-                    <input type="heartrate" class="form-control" id="exampleFormControlInput1" placeholder="75">
+                    <input type="heartRate" class="form-control" id="exampleFormControlInput1" placeholder="75">
                 </div>
 
                 <div class="form-group">
                     <label for="exampleFormControlInput1">Blood Pressure</label>
-                    <input type="bloodpressure" class="form-control" id="exampleFormControlInput1" placeholder="110/83">
+                    <input type="bloodPressure" class="form-control" id="exampleFormControlInput1" placeholder="110/83">
                 </div>
 
                 {/* Pull dropdown from API here. Possibly a select instead of an input*/}
@@ -89,14 +89,11 @@ function PatientForm({ children }) {
                     <label for="exampleFormControlInput1">Phone Number</label>
                     <input type="phone" class="form-control" id="exampleFormControlInput1" placeholder="555-555-5555">
                 </div>
+            </form>
 
+            <button type="button" class="btn btn-primary btn-lg">Add Patient</button>
+            <button type="button" class="btn btn-danger btn-lg">Cancel</button>
 
-
-  <div class="form-group">
-    <label for="exampleFormControlTextarea1">Example textarea</label>
-    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-  </div>
-</form>
-</div>
+        </div>
     )
 }
