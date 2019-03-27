@@ -9,6 +9,7 @@ import PatientDetail from "./pages/patientsDetails";
 import AdminPage from "./pages/AdminPage";
 import AddDoctor from "./pages/AddDoctor";
 import AddPatient from "./pages/AddPatient";
+import AddPatientSchedule from "./pages/addPatientSchedule";
 
 function App() {
   return(
@@ -24,6 +25,7 @@ function App() {
           <Route exact path="/adminPage" component={AdminPage} />
           <Route exact path="/adminPage/addDoctor" component={AddDoctor} />
           <Route exact path="/adminPage/addPatient" component={AddPatient} />       
+          <Route exact path="/addPatientSchedule/:id/:name" component={AddPatientSchedule} />       
           <Route component={NoMatch} />
         </Switch>
       </div>

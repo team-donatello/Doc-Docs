@@ -19,7 +19,6 @@ const patientSchema = new Schema({
   name: { type: String, required: true },
   age: { type: Number, required: true },
   gender: { type: String, required: true },
-  date: { type: Date, default: Date.now },
   height: { type: String, required: true },
   weight: { type: String, required: true },
   heartrate: { type: Number, required: true },
