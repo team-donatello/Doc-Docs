@@ -3,20 +3,32 @@ import Jumbotron from "../components/Jumbotron";
 import { Col, Row, Container } from "../components/Grid";
 import API from "../utils/API";
 import { DayPilot, DayPilotScheduler } from "daypilot-pro-react";
-import { Select, Option } from "../components/Form";
-// import Scheduler from "./Scheduler";
+import { Select, Option, FormBtn } from "../components/Form";
 
 class Admin extends Component {
     state = {
+        freeDoctorArry: [],
         doctors: [],
         schedulers: [],
         patients: [],
         doctorName: "",
-        value: ''
+        id: "",
+        text: "",
+        start: "",
+        end: "",
+        resource: "",
+        barColor: "",
+        barBackColor: "",
+        backColor: "",
+        color: ""
     }
 
     componentDidMount() {
         this.loadAllData();
+        for (let i = 0; i <= 9; i++) {
+            this.state.freeDoctorArry.push({ id: i, text: "Event 2", start: "2019-03-03", end: "2019-03-03", resource: "C", barColor: "#38761d", barBackColor: "#93c47d" });
+        }
+        console.log(this.state.freeDoctorArry);
     }
 
     loadAllData = () => {
@@ -36,11 +48,18 @@ class Admin extends Component {
             )
             .catch(err => console.log(err));
     }
-    change = () => {
-        return document.querySelector('#lang').value;
+    addPatient = event => {
+        event.preventDefault();
+        window.location.assign("/adminPage/addPatient");
+    }
+    addDoctor =event => {
+        event.preventDefault();
+        console.log("add doctor button click");
+        window.location.assign("/adminPage/addDoctor");
     }
 
     render() {
+
         return (
             <Container fluid>
                 <Row>
@@ -57,10 +76,12 @@ class Admin extends Component {
                         </Col>
                     </Container>
                     <Container>
-                        <Select id="lang" >
+                        <Select
+                            onChange={this.handleChange}
+                        >
                             {this.state.doctors.map(doctor => {
                                 return (
-                                    <Option key={doctor.name} value={doctor.name} onChange={this.change}>
+                                    <Option key={doctor._id} value={doctor.name}>
                                         {doctor.name}
                                     </Option>
                                 )
@@ -70,7 +91,18 @@ class Admin extends Component {
 
                 </Row>
                 <Row>
-
+                    <Container>
+                        <FormBtn
+                            onClick={this.addPatient}>
+                            Add Patient
+                        </FormBtn>
+                    </Container>
+                    <Container>
+                        <FormBtn
+                            onClick={this.addDoctor}>
+                            Add Doctor
+                        </FormBtn>
+                    </Container>
                 </Row>
                 <Row>
                     <Col size="md-12 sm-12">
@@ -97,26 +129,27 @@ class Admin extends Component {
                                 { name: "5:00 PM", id: "I" },
                                 { name: "6:00 PM", id: "J" }
                             ]}
-                            events={
-                                [{ id: 2, text: "Event 2", start: "2019-03-03T00:00:00", end: "2019-03-03T00:00:00", resource: "A", barColor: "#38761d", barBackColor: "#93c47d" },
-                                { id: 1, text: "Event 2", start: "2019-03-03T00:00:00", end: "2019-03-03T00:00:00", resource: "C", barColor: "#38761d", barBackColor: "#93c47d" },
-                            ]}
-                        // this.state.schedulers.filter(scheduler => scheduler.doctorname === "Jon123")
-                        
-                        // onEventMoved={args => {
-                        //     console.log("Event moved: ", args.e.data.id, args.newStart, args.newEnd, args.newResource);
-                        //     this.scheduler.message("Event moved: " + args.e.data.text);
-                        // }}
-                        // ref={component => { this.scheduler = component && component.control; }}
-                        // onEventClick={args => {
-                        //     console.log("Click : ", args.e.data.id, args.newStart, args.newEnd, args.newResource);
-                        // }}
-                        items = {[ 
-                            { 
-                            text: "Something", 
-                            onclick: function (args) { 
-                            alert("You clicked: " + args.resource.id); 
-                            } }]}
+                            events={this.state.freeDoctorArry}
+                            // [{ id: 2, text: "Event 2", start: "2019-03-03T00:00:00", end: "2019-03-03T00:00:00", resource: "A", barColor: "#38761d", barBackColor: "#93c47d" },
+                            // { id: 1, text: "Event 2", start: "2019-03-03T00:00:00", end: "2019-03-03T00:00:00", resource: "C", barColor: "#38761d", barBackColor: "#93c47d" },
+                            // ]}
+                            // this.state.schedulers.filter(scheduler => scheduler.doctorname === "Jon123")
+
+                            // onEventMoved={args => {
+                            //     console.log("Event moved: ", args.e.data.id, args.newStart, args.newEnd, args.newResource);
+                            //     this.scheduler.message("Event moved: " + args.e.data.text);
+                            // }}
+                            // ref={component => { this.scheduler = component && component.control; }}
+                            // onEventClick={args => {
+                            //     console.log("Click : ", args.e.data.id, args.newStart, args.newEnd, args.newResource);
+                            // }}
+                            items={[
+                                {
+                                    text: "Something",
+                                    onclick: function (args) {
+                                        alert("You clicked: " + args.resource.id);
+                                    }
+                                }]}
                         >
                         </DayPilotScheduler>
 
