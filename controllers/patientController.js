@@ -1,10 +1,6 @@
 const db = require("../models");
 
-<<<<<<< HEAD
-// Defining methods for the booksController
-=======
 // Defining methods for the Patient Controller
->>>>>>> master
 module.exports = {
   findAll: function(req, res) {
     db.Patient
