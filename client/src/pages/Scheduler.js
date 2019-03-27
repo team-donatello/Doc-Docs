@@ -10,6 +10,7 @@ import Zoom from "../components/DayPilot";
 class Scheduler extends Component {
     state = {
         schedulersdata: [],
+        doctorsdata: [],
         id: "",
         text: "",
         start: "",
@@ -18,10 +19,11 @@ class Scheduler extends Component {
         barColor: "",
         barBackColor: "",
         backColor: "",
-        color: ""
+        color: "",
+        
     }
     componentDidMount() {
-        this.loadSchedulers();        
+        this.loadSchedulers();
     }
 
     loadSchedulers = () => {
@@ -30,7 +32,8 @@ class Scheduler extends Component {
                 this.setState({ schedulersdata: res.data, id: "", text: "", start: "", end: "", resource: "", barColor: "", barBackColor: "", backColor: "", color: "" })
                 //id: "", text: "", start: "", end: "", resource: "", barColor: "", barBackColor: "", backColor: "", color: "" 
             )
-            .catch(err => console.log(err));        
+            .catch(err => console.log(err));
+        
     }
 
     zoomChange(args) {
@@ -59,7 +62,7 @@ class Scheduler extends Component {
                 <Row>
                     <Col size="md-12 sm-12">
                         <Jumbotron>
-                            <h1>Doctor Scheduler</h1>
+                            <h1>{this.props.match.params.name} Doctor Schedul</h1>
                         </Jumbotron>
                     </Col>
                 </Row>
@@ -76,7 +79,7 @@ class Scheduler extends Component {
                         { groupBy: "Month" },
                         { groupBy: "Day", format: "d" }
                     ]}
-                    cellWidthSpec = {50}
+                    cellWidthSpec={50}
                     resources={[
                         { name: "9:00 AM", id: "A" },
                         { name: "10:00 AM", id: "B" },
@@ -89,15 +92,15 @@ class Scheduler extends Component {
                         { name: "5:00 PM", id: "I" },
                         { name: "6:00 PM", id: "J" }
                     ]}
-                    events={this.state.schedulersdata.filter( schedulers => schedulers.doctorname === this.props.match.params.name)}
-                    onEventClick={args => {                        
-                        console.log("Event moved: ",args.e.data._id, args.e.data.id, args.e.data.text);
+                    events={this.state.schedulersdata.filter(schedulers => schedulers.doctorname === this.props.match.params.name)}
+                    onEventClick={args => {
+                        console.log("Event moved: ", args.e.data._id, args.e.data.id, args.e.data.text);
                         // const myid = args.e.data._id;
                         // args.newStart, args.newEnd, args.newResource
                         // this.scheduler.message("Event moved: " + args.e.data.text);
                         // <Link to={"/scheduler/"+ myid} >
                         // </Link>
-                        window.location.assign("/scheduler/"+this.props.match.params.name+"/"+args.e.data._id);
+                        window.location.assign("/scheduler/" + this.props.match.params.name + "/" + args.e.data._id);
                     }}
                     ref={component => { this.scheduler = component && component.control; }}
                 />

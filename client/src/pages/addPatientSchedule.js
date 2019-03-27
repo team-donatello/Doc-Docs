@@ -1,17 +1,12 @@
 import React, { Component } from "react";
-import Jumbotron from "../components/Jumbotron";
 import { Col, Row, Container } from "../components/Grid";
 import API from "../utils/API";
-import { Link } from "react-router-dom";
 import { Input, FormBtn } from "../components/Form";
-import { DayPilot, DayPilotScheduler } from "daypilot-pro-react";
-// import DatePicker from 'react-date-picker';
+import { DayPilot } from "daypilot-pro-react";
 
-class AddPatient extends Component {
+class Admin extends Component {
     state = {
         freeDoctorArry: [],
-        schedulers: [],
-        doctors: [],
         doctorname: 'Jon123',
         time: 'select',
         name: "",
@@ -40,8 +35,9 @@ class AddPatient extends Component {
                 });
             }
         }
-        // console.log(this.state.freeDoctorArry);       
+        console.log(this.state.freeDoctorArry);
     }
+
     loadAllData = () => {
         API.getDoctors()
             .then(res =>
@@ -53,31 +49,24 @@ class AddPatient extends Component {
                 this.setState({ schedulers: res.data, name: "", username: "", password: "" })
             )
             .catch(err => console.log(err));
-        // API.getPatientDetails()
-        //     .then(res =>
-        //         this.setState({ patients: res.data, name: "", username: "", password: "" })
-        //     )
-        //     .catch(err => console.log(err));
+        API.getPatientDetails()
+            .then(res =>
+                this.setState({ patients: res.data, name: "", username: "", password: "" })
+            )
+            .catch(err => console.log(err));
     }
-    handleChange(e) {
+
+    handleInputChange = event => {
+        const { name, value } = event.target;
         this.setState({
-            doctorname: e.target.value,
-        })
+            [name]: value
+        });
     }
     handleTimeChange(e) {
         this.setState({
             time: e.target.value
         })
     }
-    handleInputChange = event => {
-        const { name, value } = event.target;
-        this.setState({
-            [name]: value
-        });
-    };
-    onChange = date => this.setState({ date })
-
-
     handleFormSubmit = event => {
         event.preventDefault();
         console.log(this.state.name);
@@ -87,24 +76,24 @@ class AddPatient extends Component {
         console.log(this.state.time);
         console.log(this.state.enterDate);
         console.log(this.state.doctorname);
-        if (this.state.name && this.state.age && this.state.gender && this.state.time && this.state.enterDate) {
+        if (this.state.name && this.state.age && this.state.gender ) {
             // save patients
-            API.savePatients({
-                name: this.state.name,
-                age: this.state.age,
-                gender: this.state.gender,
-                date: this.state.enterDate
-            })
-                .then(res => this.loadAllData())
-                .catch(err => console.log(err));
+            // API.savePatients({
+            //     name: this.state.name,
+            //     age: this.state.age,
+            //     gender: this.state.gender,
+            //     date: this.state.enterDate
+            // })
+            //     .then(res => this.loadAllData())
+            //     .catch(err => console.log(err));
 
             // save patients
             API.saveScheduler({
                 id: Math.floor(Math.random() * 10000),
                 text: this.state.name,
-                start: this.state.enterDate,
-                end: this.state.enterDate,
-                resource: this.state.time,
+                start: this.props.match.params.id,
+                end: this.props.match.params.id,
+                resource: this.props.match.params.name,
                 barColor: "#38761d",
                 barBackColor: "#e69138",
                 backColor: "#3c78d8",
@@ -118,83 +107,20 @@ class AddPatient extends Component {
             alert("Fill All form Detail");
         }
     }
+
     render() {
+
         return (
             <Container fluid>
-                <Row >
-                    <Col size="md-12 sm-12">
-                        <Jumbotron>
-                            <h1>Add New Patient</h1>
-                        </Jumbotron>
-                    </Col>
-                </Row>
-                <Container>
-                    <Row>
-                        <Col size="md-12 sm-12">
-                            <div>
-                                <select className="form-control" id="lang" onChange={this.handleChange.bind(this)} value={this.state.doctorname}>
-                                    {this.state.doctors.map(doctor => {
-                                        return (
-                                            <option key={doctor._id} value={doctor.username}>
-                                                {doctor.name}
-                                            </option>
-                                        )
-                                    })}
-                                    {/* <option value="select">Select a doctor</option>
-                                    <option value="Angular">Angular</option>
-                                    <option value="Bootstrap">Bootstrap</option>
-                                    <option value="React">React</option> */}
-                                </select>
-                                {/* <h2>{this.state.doctorname}</h2> */}
-                            </div>
-                        </Col>
-                    </Row>
-                </Container>
                 <Row>
-                    <Col size="md-12 as=12">
-                        <DayPilotScheduler
-                            startDate={DayPilot.Date.today().firstDayOfMonth()}
-                            days={25}
-                            scale={"Day"}
-                            eventHeight={30}
-                            cellWidth={50}
-                            timeHeaders={[
-                                { groupBy: "Month" },
-                                { groupBy: "Day", format: "d" }
-                            ]}
-                            cellWidthSpec={50}
-                            resources={[
-                                { name: "9:00 AM", id: "A" },
-                                { name: "10:00 AM", id: "B" },
-                                { name: "11:00 AM", id: "C" },
-                                { name: "12:00 PM", id: "D" },
-                                { name: "1:00 PM", id: "E" },
-                                { name: "2:00 PM", id: "F" },
-                                { name: "3:00 PM", id: "G" },
-                                { name: "4:00 PM", id: "H" },
-                                { name: "5:00 PM", id: "I" },
-                                { name: "6:00 PM", id: "J" }
-                            ]}
-                            events={[...this.state.schedulers.filter(scheduler => scheduler.doctorname === this.state.doctorname), ...this.state.freeDoctorArry]}
-                            ref={component => { this.scheduler = component && component.control; }}
-                            onEventClick={args => {
-                                console.log("Click : ", args.e.data.id, args.e.data.resource, args.e.data.start);
-                                let modal = new DayPilot.Modal({
-                                    id: args.e.data.id,
-                                    onClosed: function(args) {
-                                        if (args.result) {  // args.result is empty when modal is closed without submitting
-                                            // loadEvents();
-                                        }
-                                    }
-                                });
-                                modal.showUrl("/addPatientSchedule/" + args.e.data.start+"/"+args.e.data.resource);
-                            }}
-                        >
-                        </DayPilotScheduler>
-                    </Col>
-                </Row>
-                <Row>
+                    {/* <h1>{this.props.match.params.id}</h1>
+                    <h1>{this.props.match.params.name}</h1> */}
                     <Container>
+                        <Row>
+                            <Col size="md-12 sm-12">
+                               
+                            </Col>
+                        </Row>
                         <Col size="md-12 sm-12">
                             <Input
                                 value={this.state.name}
@@ -202,6 +128,7 @@ class AddPatient extends Component {
                                 name="name"
                                 placeholder="Patient Name (Required)">
                             </Input>
+                            <p>Date : {this.props.match.params.id}</p>
                             <Row>
                                 <Col size="md-6 sm-6">
                                     <Input
@@ -220,10 +147,11 @@ class AddPatient extends Component {
                                     </Input>
                                 </Col>
                             </Row>
+                            
 
 
                             <Row>
-                                <Col size="md-6 sm-6">
+                                {/* <Col size="md-6 sm-6">
                                     <div>
                                         <select className="form-control" id="time" onChange={this.handleTimeChange.bind(this)} value={this.state.time}>
                                             <option value="select">Select a Time</option>
@@ -238,22 +166,22 @@ class AddPatient extends Component {
                                             <option value="I">05:00 PM</option>
                                             <option value="J">06:00 PM</option>
                                         </select>
-                                        {/* <h2>{this.state.time}</h2> */}
+                                        <h2>{this.state.time}</h2>
                                     </div>
-                                </Col>
-                                <Col size="md-6 sm-6">
+                                </Col> */}
+                                {/* <Col size="md-6 sm-6">
                                     <Input
                                         value={this.state.enterDate}
                                         onChange={this.handleInputChange}
                                         name="enterDate"
                                         placeholder="YYYY-MM-DD (Required)">
                                     </Input>
-                                    {/* <DatePicker
+                                    <DatePicker
                                         format={"dd-MMM-yyyy HH:mm:ss"}
                                         onChange={this.onChange}
                                         value={this.state.date}
-                                    /> */}
-                                </Col>
+                                    />
+                                </Col> */}
                             </Row>
 
 
@@ -267,20 +195,14 @@ class AddPatient extends Component {
                         </Col>
                     </Container>
                 </Row>
-                <Row>
-                    <Container>
-                        <Col size="md-2 md-offset-1">
-                            <Link to={{
-                                pathname: '/adminPage'
-                            }}
-                            >← Back to Scheduler</Link>
-                        </Col>
-                    </Container>
-                </Row>
+
+
+
+
+
             </Container>
         )
-
     }
 }
 
-export default AddPatient;
+export default Admin;
