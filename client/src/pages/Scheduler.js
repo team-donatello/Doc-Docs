@@ -7,6 +7,8 @@ import Zoom from "../components/DayPilot";
 // import { Link } from "react-router-dom";
 // import Schedulerpage from "../components/Scheduler";
 
+
+
 class Scheduler extends Component {
     state = {
         schedulersdata: [],
