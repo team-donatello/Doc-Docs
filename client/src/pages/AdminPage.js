@@ -53,7 +53,7 @@ class Admin extends Component {
                 <Row>
                     <Container className="text-center">
                         <Col size="md-12 sm-12">
-                            <h1>Selact Doctor</h1>
+                            <h1>Select Doctor</h1>
                         </Col>
                     </Container>
                     <Container>

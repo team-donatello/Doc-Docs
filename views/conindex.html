@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="bootstrap.min.css">
+    <title>Appointment Confirmation</title>
+    
+  </head>
+  <body>
+    <div class="container">
+      <div class="jumbotron">
+        <h1>${patientdetails.name} has an appointment recently created for ${schedulersdata.start}</h1>
+        <p>Thank you for scheduling your appointment with Dr ${db.Doctor.name}.  
+            Please be on time and call 24 hours in advance if you need to cancel or change the time.
+              Thank you.</p>
+      </div>
+    </div>
+  </body>
+  <footer>Regards, DocDocs Admin</footer>
+</html>
