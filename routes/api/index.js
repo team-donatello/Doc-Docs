@@ -2,7 +2,8 @@ const router = require("express").Router();
 const doctorRoutes = require("./doctors");
 const patientRoutes = require("./patients");
 const schedulerRoutes = require("./scheduler");
-// API routes
+
+// doctor routes
 router.use("/doctors", doctorRoutes);
 router.use("/patients", patientRoutes);
 

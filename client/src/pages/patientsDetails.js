@@ -14,13 +14,22 @@ class PatientsDetails extends Component {
         name: "",
         age: "",
         gender: "",
-        data: ""
+        height: "",
+        weight: "",
+        heartrate: "",
+        bloodpressure: "",
+        medications: [],
+        conditions: [],
+        allergies: [],
+        surgeries: [],
+        email: "",
+        phone: "",
     };
     componentDidMount() {
         API.getSchedulerWithID(this.props.match.params.id)
             .then(res => this.setState({ patientScheduler: res.data }))
             .catch(err => console.log(err));
-        this.loadPatientDetail();
+        this.loadPatientDetail();        
     }
 
     loadPatientDetail = () => {
@@ -32,8 +41,7 @@ class PatientsDetails extends Component {
             .catch(err => console.log(err));
 
     }
-
-
+    
     render() {
         return (
             <Container fluid>
@@ -41,48 +49,70 @@ class PatientsDetails extends Component {
                     <Col size="md-12">
                         <Jumbotron>
                             <h1>
-                                Patient Name : {this.state.patientScheduler.id} by {this.state.patientScheduler.text}
+                                Patient Name : {this.state.patientScheduler.text}
                             </h1>
                         </Jumbotron>
                     </Col>
                 </Row>
                 <Row>
-                    <Col size="md-10 md-offset-1">
+                    <Col size="md-12 md-offset-1">
                         <h2>
                             {this.state.patient.filter(patientdetails => {
                                 if (patientdetails.name === this.state.patientScheduler.text) {
-                                    this.setState.patientAllDetail = patientdetails;
-                                    this.state.name= patientdetails.name
-                                    this.state.age= patientdetails.age
-                                    this.state.gender= patientdetails.gender
-                                    this.state.date= patientdetails.date
-                                    console.log(patientdetails.name + patientdetails.age + patientdetails._id + patientdetails.gender + patientdetails.date);
-
-                                }
-                                return console.log("text display : " + this.state.patientScheduler.text + " name : " + patientdetails.name + " age : " + patientdetails.age);
+                                    this.setState.patientAllDetail = patientdetails 
+                                    this.state.name = patientdetails.name
+                                    this.state.age = patientdetails.age
+                                    this.state.gender = patientdetails.gender
+                                    this.state.height = patientdetails.height
+                                    this.state.weight = patientdetails.weight
+                                    this.state.heartrate = patientdetails.heartrate
+                                    this.state.bloodpressure = patientdetails.bloodpressure
+                                    this.state.medications = patientdetails.medications
+                                    this.state.conditions = patientdetails.conditions
+                                    this.state.allergies = patientdetails.allergies
+                                    this.state.surgeries = patientdetails.surgeries
+                                    this.state.email = patientdetails.email
+                                    this.state.phone = patientdetails.phone
+                                    
+                                    // console.log(patientdetails.name + patientdetails.age + patientdetails._id + patientdetails.gender + patientdetails.date);                                    
+                                }                              
 
                             })}
-
+                            
                         </h2>
+                        
                         <Accordion
                             name={this.state.name}
                             age={this.state.age}
                             gender={this.state.gender}
-                            date={this.state.date}                            
-                            >
+                            height={this.state.height}
+                            weight={this.state.weight}
+                            heartrate={this.state.heartrate}
+                            bloodpressure={this.state.bloodpressure }
+                            medications={this.state.medications}
+                            conditions={this.state.conditions}
+                            allergies={this.state.allergies}
+                            surgeries={this.state.surgeries}
+                            email= {this.state.email}
+                            phone={this.state.phone}
+                        >
 
                         </Accordion>
+                              
                         {/* <Accordion></Accordion> */}
 
                     </Col>
                 </Row>
                 <Row>
-                    <Col size="md-2">
+                    <Col size="md-2 md-offset-1">
                         <Link to={{
                             pathname: '/scheduler/' + this.props.match.params.name
                         }}
                         >← Back to Scheduler</Link>
                     </Col>
+                </Row>
+                <Row size="md-12">
+                    
                 </Row>
             </Container>
         )

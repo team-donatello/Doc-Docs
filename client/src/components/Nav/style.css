@@ -1,15 +1,16 @@
 .navbar{
-    background-color: aqua;
+    background-color: black;
     margin-bottom: 10px;
     border-bottom: solid black 2px;
     
 }
 .navbar-band{
-    color: black;
-    float: left;
+    color:white;
+    float: right;
 }
 
 .nav-item{
-    color: black;
+    color: white;
     margin-left: 15px;    
+    font-family: 'Open Sans Condensed', sans-serif;
 }

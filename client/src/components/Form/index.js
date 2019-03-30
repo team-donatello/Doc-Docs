@@ -23,7 +23,7 @@ export function PasswordInput(props) {
 export function TextArea(props) {
   return (
     <div className="form-group">
-      <textarea className="form-control" rows="20" {...props} />
+      <textarea className="form-control" rows="2" {...props} />
     </div>
   );
 }
@@ -50,7 +50,7 @@ export function A(props) {
 export function Select(props) {
   return (
     <div className="form-group">     
-      <select className="form-control" id="exampleFormControlSelect1">
+      <select className="form-control" id="exampleFormControlSelect1" {...props}>
         {props.children}        
       </select>
     </div>

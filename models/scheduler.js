@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const schedulerSchema = new Schema({  
-  id: { type: String, required: true },
+  id: { type: String, required: true },  
   text: { type: String, required: true },
   start: { type: String, required: true },
   end: { type: String, required: true },
@@ -11,6 +11,7 @@ const schedulerSchema = new Schema({
   barBackColor: { type: String },
   backColor: { type: String },
   color: { type: String },
+  doctorname: { type: String }
 });
 
 const Scheduler = mongoose.model("Scheduler", schedulerSchema);

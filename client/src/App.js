@@ -7,7 +7,9 @@ import Scheduler from "./pages/Scheduler";
 import Login from "./pages/Login";
 import PatientDetail from "./pages/patientsDetails";
 import AdminPage from "./pages/AdminPage";
-
+import AddDoctor from "./pages/AddDoctor";
+import AddPatient from "./pages/AddPatient";
+import AddPatientSchedule from "./pages/addPatientSchedule";
 
 function App() {
   return(
@@ -18,12 +20,12 @@ function App() {
           <Route exact path="/" component={Home} />
           <Route exact path="/home" component={Home} />
           <Route exact path="/scheduler/:name" component={Scheduler} />
-          {/* render={(props) => <Scheduler {...props}  />} */}
-          {/* render={()=>(<Scheduler loginDoctorName={this.state.loginDoctorName}/>)} */}
-          {/* loginDoctorName={this.state.loginDoctorName} */}
           <Route exact path="/login" component={Login} />
           <Route exact path="/scheduler/:name/:id" component={PatientDetail} />  
-          <Route exact path="/adminPage" component={AdminPage} />       
+          <Route exact path="/adminPage" component={AdminPage} />
+          <Route exact path="/adminPage/addDoctor" component={AddDoctor} />
+          <Route exact path="/adminPage/addPatient" component={AddPatient} />       
+          <Route exact path="/addPatientSchedule/:id/:name/:doc" component={AddPatientSchedule} />       
           <Route component={NoMatch} />
         </Switch>
       </div>

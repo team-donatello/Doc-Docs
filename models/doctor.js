@@ -4,8 +4,15 @@ const Schema = mongoose.Schema;
 const doctorSchema = new Schema({  
   name: { type: String, required: true },
   username: { type: String, required: true },
-  passwerd: { type: String, required: true },
-  date: { type: Date, default: Date.now }
+  password: { type: String, required: true },
+  date: { type: Date, default: Date.now },
+  // fullname: String,
+  // address: String,
+  // phone: Number,
+  // fax: Number,
+  // gender: String,
+  // age: String,
+  // yearofpractice: String,  
 });
 
 const Doctor = mongoose.model("Doctor", doctorSchema);

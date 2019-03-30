@@ -51,7 +51,7 @@ class InteractionModal extends React.Component {
                         <div className = "input-group">
                             <input type= "text" className = "form-control" placeholder="Enter New Perscription" value = {this.state.searchParam} onChange = {this.handleSearchInputChange}/>
                             <div className = "input-group-btn">
-                                <button className = "btn btn-default" id = "add" onClick = {this.handleAdd} {...this.state.searchResult.length ? "DISABLED": ""}>
+                                <button className = "btn btn-default" id = "add" onClick = {this.handleAdd} disabled={this.state.searchResult.length >0}>
                                     <i className = "glyphicon glyphicon-plus" />
                                 </button>
                             </div>
