@@ -1,6 +1,7 @@
 import React from "react";
 import drugAPI from "../../utils/drugAPI"
 
+
 class InteractionModal extends React.Component {
     
     constructor(props) {
@@ -36,7 +37,7 @@ class InteractionModal extends React.Component {
     handleAdd = (e) => {
 
         //adds drug to database
-        
+
 
     }
 
