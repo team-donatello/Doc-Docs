@@ -8,14 +8,14 @@ import { Input, FormBtn, PasswordInput } from "../components/Form";
 
 class Login extends Component {
     state = {
-        doctors: [],        
+        doctors: [],
         name: "",
         username: "",
-        password: ""        
+        password: ""
     }
 
     componentDidMount() {
-        this.loadDoctors();        
+        this.loadDoctors();
     }
 
     loadDoctors = () => {
@@ -34,19 +34,20 @@ class Login extends Component {
 
     handleFormSubmit = event => {
         event.preventDefault();
-             
+
         for (let i = 0; i < this.state.doctors.length; i++) {
-            if (this.state.doctors[i].username === "admin" && this.state.doctors[i].password === "admin") {
-                window.location.assign("/adminPage");
-                // alert("this is admin");
-                return
-            }else if (this.state.doctors[i].username === this.state.username && this.state.doctors[i].password === this.state.password) {
+
+            if (this.state.doctors[i].username === this.state.username && this.state.doctors[i].password === this.state.password) {
                 // console.log("Login Username = " + this.state.doctors[i].username + " Login Password = " + this.state.doctors[i].password);
-                window.location.assign("/scheduler/"+this.state.doctors[i].username);              
+                window.location.assign("/scheduler/" + this.state.doctors[i].username);
                 return
-            } 
+            } else if (this.state.username === "admin" && this.state.password === "admin@123") {
+                window.location.assign("/adminPage");                
+                return
+            }
         }
         alert("Plese Enter Valid Username and Password ");
+        window.location.reload();
     }
 
     render() {
@@ -78,10 +79,10 @@ class Login extends Component {
                             <FormBtn
                                 disabled={!this.state.username && this.state.password}
                                 onClick={this.handleFormSubmit}
-                                >                                     
-                                    Login                             
+                            >
+                                Login
                             </FormBtn>
-                                                  
+
 
                         </Col>
                     </Row>

@@ -29,7 +29,7 @@ class PatientsDetails extends Component {
         API.getSchedulerWithID(this.props.match.params.id)
             .then(res => this.setState({ patientScheduler: res.data }))
             .catch(err => console.log(err));
-        this.loadPatientDetail();
+        this.loadPatientDetail();        
     }
 
     loadPatientDetail = () => {
