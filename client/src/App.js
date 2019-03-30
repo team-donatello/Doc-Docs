@@ -25,7 +25,7 @@ function App() {
           <Route exact path="/adminPage" component={AdminPage} />
           <Route exact path="/adminPage/addDoctor" component={AddDoctor} />
           <Route exact path="/adminPage/addPatient" component={AddPatient} />       
-          <Route exact path="/addPatientSchedule/:id/:name" component={AddPatientSchedule} />       
+          <Route exact path="/addPatientSchedule/:id/:name/:doc" component={AddPatientSchedule} />       
           <Route component={NoMatch} />
         </Switch>
       </div>

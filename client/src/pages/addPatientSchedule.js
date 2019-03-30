@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Col, Row, Container } from "../components/Grid";
 import API from "../utils/API";
-import { Input, FormBtn } from "../components/Form";
+import { Input, FormBtn, TextArea } from "../components/Form";
 import { DayPilot } from "daypilot-pro-react";
 
 class Admin extends Component {
@@ -13,11 +13,26 @@ class Admin extends Component {
         age: "",
         gender: "",
         date: "",
-        enterDate: ""
+        enterDate: "",
+        height: "",
+        weight: "",
+        heartrate: "",
+        bloodpressure: "",
+        bodyweight: "",
+        medications: "",
+        conditions: "",
+        allergies: "",
+        surgeries: "",
+        physician: "",
+        mdid: "",
+        bill: "",
+        email: "",
+        phone: ""
     }
 
     componentDidMount() {
         this.loadAllData();
+        console.log(this.props.match.params.doc)
         let arr = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J"];
 
         let start = new DayPilot.Date.today().firstDayOfMonth();
@@ -68,24 +83,31 @@ class Admin extends Component {
         })
     }
     handleFormSubmit = event => {
-        event.preventDefault();
-        console.log(this.state.name);
-        console.log(this.state.age);
-        console.log(this.state.gender);
-        // console.log(this.state.date);
-        console.log(this.state.time);
-        console.log(this.state.enterDate);
-        console.log(this.state.doctorname);
-        if (this.state.name && this.state.age && this.state.gender ) {
+        event.preventDefault();        
+        if (this.state.name && this.state.age && this.state.gender && this.state.height && this.state.weight && this.state.heartrate && this.state.bloodpressure && this.state.bodyweight && this.state.email ) {
             // save patients
-            // API.savePatients({
-            //     name: this.state.name,
-            //     age: this.state.age,
-            //     gender: this.state.gender,
-            //     date: this.state.enterDate
-            // })
-            //     .then(res => this.loadAllData())
-            //     .catch(err => console.log(err));
+            API.savePatients({
+                name: this.state.name,
+                age: this.state.age,
+                gender: this.state.gender,
+                height: this.state.height,
+                weight: this.state.weight,
+                heartrate: this.state.heartrate,
+                bloodpressure: this.state.bloodpressure,
+                bodyweight: this.state.bodyweight,
+                medications: this.state.medications.split(","),
+                conditions: this.state.conditions.split(","),
+                allergies: this.state.allergies.split(","),
+                surgeries: this.state.surgeries.split(","),
+                physician: this.state.physician,
+                mdid: this.state.mdid,
+                bill: this.state.bill,
+                nextappt: this.props.match.params.id,
+                email: this.state.email,
+                phone: this.state.phone
+            })
+                .then(res => this.loadAllData())
+                .catch(err => console.log(err));
 
             // save patients
             API.saveScheduler({
@@ -98,10 +120,11 @@ class Admin extends Component {
                 barBackColor: "#e69138",
                 backColor: "#3c78d8",
                 color: "white",
-                doctorname: this.state.doctorname
+                doctorname:  this.props.match.params.doc
             })
                 .then(res => this.loadAllData())
-                .catch(err => console.log(err));
+                .catch(err => console.log(err))
+            window.location.reload();
 
         } else {
             alert("Fill All form Detail");
@@ -118,7 +141,7 @@ class Admin extends Component {
                     <Container>
                         <Row>
                             <Col size="md-12 sm-12">
-                               
+
                             </Col>
                         </Row>
                         <Col size="md-12 sm-12">
@@ -147,43 +170,132 @@ class Admin extends Component {
                                     </Input>
                                 </Col>
                             </Row>
-                            
-
-
                             <Row>
-                                {/* <Col size="md-6 sm-6">
-                                    <div>
-                                        <select className="form-control" id="time" onChange={this.handleTimeChange.bind(this)} value={this.state.time}>
-                                            <option value="select">Select a Time</option>
-                                            <option value="A">09:00 AM</option>
-                                            <option value="B">10:00 AM</option>
-                                            <option value="C">11:00 AM</option>
-                                            <option value="D">12:00 PM</option>
-                                            <option value="E">01:00 PM</option>
-                                            <option value="F">02:00 PM</option>
-                                            <option value="G">03:00 PM</option>
-                                            <option value="H">04:00 PM</option>
-                                            <option value="I">05:00 PM</option>
-                                            <option value="J">06:00 PM</option>
-                                        </select>
-                                        <h2>{this.state.time}</h2>
-                                    </div>
-                                </Col> */}
-                                {/* <Col size="md-6 sm-6">
+                                <Col size="md-6 sm-6">
                                     <Input
-                                        value={this.state.enterDate}
+                                        value={this.state.height}
                                         onChange={this.handleInputChange}
-                                        name="enterDate"
-                                        placeholder="YYYY-MM-DD (Required)">
+                                        name="height"
+                                        placeholder="Height (Required)">
                                     </Input>
-                                    <DatePicker
-                                        format={"dd-MMM-yyyy HH:mm:ss"}
-                                        onChange={this.onChange}
-                                        value={this.state.date}
-                                    />
-                                </Col> */}
+                                </Col>
+                                <Col size="md-6 sm-6">
+                                    <Input
+                                        value={this.state.weight}
+                                        onChange={this.handleInputChange}
+                                        name="weight"
+                                        placeholder="Weight (Required)">
+                                    </Input>
+                                </Col>
                             </Row>
-
+                            <Row>
+                                <Col size="md-6 sm-6">
+                                    <Input
+                                        value={this.state.heartrate}
+                                        onChange={this.handleInputChange}
+                                        name="heartrate"
+                                        placeholder="Heartrate (Required)">
+                                    </Input>
+                                </Col>
+                                <Col size="md-6 sm-6">
+                                    <Input
+                                        value={this.state.bloodpressure}
+                                        onChange={this.handleInputChange}
+                                        name="bloodpressure"
+                                        placeholder="Bloodpressure (Required)">
+                                    </Input>
+                                </Col>
+                            </Row>
+                            <Row>
+                                <Col size="md-6 sm-6">
+                                    <Input
+                                        value={this.state.bodyweight}
+                                        onChange={this.handleInputChange}
+                                        name="bodyweight"
+                                        placeholder="Body Weight (Required)">
+                                    </Input>
+                                </Col>
+                                <Col size="md-6 sm-6">
+                                    <TextArea
+                                        value={this.state.medications}
+                                        onChange={this.handleInputChange}
+                                        name="medications"
+                                        placeholder="Medications">
+                                    </TextArea>
+                                </Col>
+                            </Row>
+                            <Row>
+                                <Col size="md-6 sm-6">
+                                    <TextArea
+                                        value={this.state.conditions}
+                                        onChange={this.handleInputChange}
+                                        name="conditions"
+                                        placeholder="Conditions">
+                                    </TextArea>
+                                </Col>
+                                <Col size="md-6 sm-6">
+                                    <TextArea
+                                        value={this.state.allergies}
+                                        onChange={this.handleInputChange}
+                                        name="allergies"
+                                        placeholder="Allergies">
+                                    </TextArea>
+                                </Col>
+                            </Row>
+                            <Row>
+                                <Col size="md-6 sm-6">
+                                    <TextArea
+                                        value={this.state.surgeries}
+                                        onChange={this.handleInputChange}
+                                        name="surgeries"
+                                        placeholder="Surgeries">
+                                    </TextArea>
+                                </Col>
+                                <Col size="md-6 sm-6">
+                                    <Input
+                                        value={this.state.physician}
+                                        onChange={this.handleInputChange}
+                                        name="physician"
+                                        placeholder="Physician">
+                                    </Input>
+                                </Col>
+                            </Row>
+                            <Row>
+                                <Col size="md-6 sm-6">
+                                    <Input
+                                        value={this.state.mdid}
+                                        onChange={this.handleInputChange}
+                                        name="mdid"
+                                        placeholder="MD Id">
+                                    </Input>
+                                </Col>
+                                <Col size="md-6 sm-6">
+                                    <Input
+                                        value={this.state.bill}
+                                        onChange={this.handleInputChange}
+                                        name="bill"
+                                        placeholder="Bill">
+                                    </Input>
+                                </Col>
+                            </Row>
+                            <Row>
+                                <Col size="md-6 sm-6">
+                                    <Input
+                                        value={this.state.email}
+                                        onChange={this.handleInputChange}
+                                        name="email"
+                                        placeholder="Email">
+                                    </Input>
+                                </Col>
+                                <Col size="md-6 sm-6">
+                                    <Input
+                                        value={this.state.phone}
+                                        onChange={this.handleInputChange}
+                                        name="phone"
+                                        placeholder="Phone">
+                                    </Input>
+                                </Col>
+                            </Row>
 
                             <FormBtn
                                 // disabled={!(this.state.name && !this.state.age && this.state.gender && this.state.enterDate && this.state.time)}
