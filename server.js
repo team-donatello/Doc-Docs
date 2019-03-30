@@ -1,6 +1,6 @@
 const express = require("express");
 const bodyParser = require('body-parser');
-var app = express();
+//var app = express();
 
 const mongoose = require("mongoose");
 const routes = require("./routes");
@@ -25,8 +25,8 @@ app.use(bodyParser.json());
 // );
 // app.set('view engine', "html");
 
-require("./routes/api/reminderemail")(app);
-require("./routes/api/confirmationemail")(app);
+//require("./routes/api/reminderemail")(app);
+//require("./routes/api/confirmationemail")(app);
 
 // Connect to the Mongo DB
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/Doc-Docs");
@@ -36,4 +36,4 @@ app.listen(PORT, function() {
   console.log(`🌎  ==> API Server now listening on PORT ${PORT}!`);
 });
 
-module.exports = app;
+//module.exports = app;

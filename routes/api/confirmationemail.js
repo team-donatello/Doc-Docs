@@ -16,7 +16,7 @@ var transporter = nodemailer.createTransport({
            <p>${data.message}</p>`
   };
   app.post('/confirmationemail', function(req,res){
-    $('#FormBtn').on('click', function(){
+    $('#handleFormSubmit').on('click', function(){
       transporter.sendMail(mailOptions, function (err, info) {
         if(err)
           console.log(err)
