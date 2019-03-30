@@ -1,20 +1,26 @@
 import React from "react";
 import drugAPI from "../../utils/drugAPI"
 
-class interactionModal extends React.Component {
+class InteractionModal extends React.Component {
     
     constructor(props) {
         super(props);
         this.state = {
             searchParam: "",
-            searchResult: {}
+            searchResult: []
         }
+        this.handleSearchInputChange = this.handleSearchInputChange.bind(this);
+        this.handleAdd = this.handleSearchInputChange.bind(this);
     }
 
     componentDidUpdate = async() => {
         let result = await drugAPI.searchInteractions(this.state.searchParam);
-        let filteredResult = result;
-        this.setState({searchResult:filteredResult})
+        let filteredResult = result.interactionTypeGroup[0].interactionType[0].interactionPair.filter(drug => props.drugs.includes(drug.interactionConcept[1].sourceConceptItem.name));
+        let displayResult = filteredResult.map( drug => drug = {
+            name: drug.interactionConcept[1].sourceConceptItem.name,
+            description: drug.description
+        });
+        this.setState({searchResult:displayResult})
     }
 
     handleSearchInputChange = (e) => {
@@ -27,14 +33,32 @@ class interactionModal extends React.Component {
 
     }
 
+    handleAdd = (e) => {
+
+        //adds drug to database
+        
+
+    }
+
     render() {
         return (
-            <div className = "modal">
-                <div className = "inputDiv">
-                    <input></input>
-                </div>
-                <div className = "resultDiv">
-                    
+            <div className = "modal fade" id = "interactionModal" role ="dialog">
+                <div className = "modal-dialog">
+                
+                    <div className = "modal">
+                        <button type="button" class="close" data-dismiss="modal"> &times; </button>
+                        <div className = "input-group">
+                            <input type= "text" className = "form-control" placeholder="Enter New Perscription" value = {this.state.searchParam} onChange = {this.handleSearchInputChange}/>
+                            <div className = "input-group-btn">
+                                <button className = "btn btn-default" id = "add" onClick = {this.handleAdd} {...this.state.searchResult.length ? "DISABLED": ""}>
+                                    <i className = "glyphicon glyphicon-plus" />
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div className = "resultDiv">
+                        {this.state.searchResult.length ? this.state.searchResult.map(drug => <div key={drug.name}><h3>{drug.name}</h3><p>{drug.description}</p></div>) : <p>No Adverse Drug Interactions Found</p>}
+                    </div>
                 </div>
             
             </div>
@@ -43,4 +67,4 @@ class interactionModal extends React.Component {
 
 }
 
-export default interactionModal;
+export default InteractionModal;
