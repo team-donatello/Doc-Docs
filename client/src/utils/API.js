@@ -26,7 +26,10 @@ export default {
     // Saves a scheduler to the database
     saveScheduler: function(schedulerData){
         return axios.post("/api/scheduler", schedulerData);
-    }
-    
+    },
+    // Saves a Doctor to the database
+    saveDoctor: function(doctorData){
+        return axios.post("/api/doctors", doctorData);
+    }    
     
 }

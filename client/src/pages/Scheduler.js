@@ -3,9 +3,6 @@ import Jumbotron from "../components/Jumbotron";
 import { Col, Row, Container } from "../components/Grid";
 import API from "../utils/API";
 import { DayPilot, DayPilotScheduler } from "daypilot-pro-react";
-import Zoom from "../components/DayPilot";
-// import { Link } from "react-router-dom";
-// import Schedulerpage from "../components/Scheduler";
 
 class Scheduler extends Component {
     state = {
@@ -36,26 +33,7 @@ class Scheduler extends Component {
         
     }
 
-    zoomChange(args) {
-        switch (args.level) {
-            case "month":
-                this.setState({
-                    startDate: DayPilot.Date.today().firstDayOfMonth(),
-                    days: DayPilot.Date.today().daysInMonth(),
-                    scale: "Day"
-                });
-                break;
-            case "week":
-                this.setState({
-                    startDate: DayPilot.Date.today().firstDayOfWeek(),
-                    days: 7,
-                    scale: "Day"
-                });
-                break;
-            default:
-                throw new Error("Invalid zoom level");
-        }
-    }
+    
     render() {
         return (
             <Container fluid>
@@ -66,15 +44,13 @@ class Scheduler extends Component {
                         </Jumbotron>
                     </Col>
                 </Row>
-
-                {/* <Schedulerpage> */}
-                <Zoom onChange={args => this.zoomChange(args)} />
+                               
                 <DayPilotScheduler
-                    startDate={DayPilot.Date.today().firstDayOfMonth()}
+                    startDate={DayPilot.Date.today().firstDayOfWeek()}
                     days={31}
                     scale={"Day"}
                     eventHeight={30}
-                    cellWidth={50}
+                    cellWidth={70}
                     timeHeaders={[
                         { groupBy: "Month" },
                         { groupBy: "Day", format: "d" }
@@ -104,11 +80,6 @@ class Scheduler extends Component {
                     }}
                     ref={component => { this.scheduler = component && component.control; }}
                 />
-
-
-                {/* </Schedulerpage> */}
-
-
 
             </Container>
         );

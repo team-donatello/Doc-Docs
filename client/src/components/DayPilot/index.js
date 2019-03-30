@@ -28,11 +28,9 @@ class Zoom extends Component {
                 Zoom:
                 <label><input type="radio" name="zoom" value="month" onChange={ev => this.change(ev)} checked={this.state.level === "month"} /> Month</label>
                 <label><input type="radio" name="zoom" value="week"  onChange={ev => this.change(ev)} checked={this.state.level === "week"} /> Week</label>
-                
             </div>
         );
     }
 }
 
 export default Zoom;
-
