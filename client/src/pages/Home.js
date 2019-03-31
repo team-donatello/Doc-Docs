@@ -13,7 +13,8 @@ class Login extends Component {
                 <Row>
                     <Col size="md-12 sm-12">
                         <Jumbotron>
-                            <h1>Doc Docs Home page</h1>
+                            <h1>Doc-Docs</h1>
+                            <h2>Managing your schedule just got a whole lot easier.</h2>
                         </Jumbotron>
                     </Col>
                 </Row>
