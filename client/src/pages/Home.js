@@ -5,10 +5,12 @@ import "../components/style/home.css";
 
 
 class Login extends Component {
+ 
 
 
     render() {
         return (
+            
             <Container fluid>
                 <Row>
                     <Col size="md-12 sm-12">
@@ -18,7 +20,7 @@ class Login extends Component {
             </style>
                             <h1>Doc-Docs</h1>
                             <h2>Managing your schedule just got a whole lot easier.</h2>
-                             <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR9KAKD2BKnLB4ejeoEndPOw2xlMGbwNz64L5FPx9j2wji5WE2d" height="150" width="450"></img>
+                             <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR9KAKD2BKnLB4ejeoEndPOw2xlMGbwNz64L5FPx9j2wji5WE2d" height="150" width="850"></img>
 
                             
                         

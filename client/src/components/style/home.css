@@ -7,6 +7,11 @@
     font-family: 'Open Sans Condensed', sans-serif;
 }
 
+.container {
+    background-color: black;
+    width: 100%;
+}
+
 
 img {
     border-radius: 1px;
