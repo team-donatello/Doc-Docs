@@ -30,6 +30,9 @@ export default {
     // Saves a Doctor to the database
     saveDoctor: function(doctorData){
         return axios.post("/api/doctors", doctorData);
+    },
+    updatePatient: function(id, drugData) {
+        return axios.update(`/api/patients/${id}`, drugData);
     }    
     
 }

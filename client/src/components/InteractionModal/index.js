@@ -1,5 +1,6 @@
 import React from "react";
-import drugAPI from "../../utils/drugAPI"
+import drugAPI from "../../utils/drugAPI";
+import API from "../../utils/API";
 
 
 class InteractionModal extends React.Component {
@@ -11,12 +12,12 @@ class InteractionModal extends React.Component {
             searchResult: []
         }
         this.handleSearchInputChange = this.handleSearchInputChange.bind(this);
-        this.handleAdd = this.handleSearchInputChange.bind(this);
+        this.handleAdd = this.handleAdd.bind(this);
     }
 
     componentDidUpdate = async() => {
         let result = await drugAPI.searchInteractions(this.state.searchParam);
-        let filteredResult = result.interactionTypeGroup[0].interactionType[0].interactionPair.filter(drug => props.drugs.includes(drug.interactionConcept[1].sourceConceptItem.name));
+        let filteredResult = result.interactionTypeGroup[0].interactionType[0].interactionPair.filter(drug => this.props.drugs.includes(drug.interactionConcept[1].sourceConceptItem.name));
         let displayResult = filteredResult.map( drug => drug = {
             name: drug.interactionConcept[1].sourceConceptItem.name,
             description: drug.description
@@ -34,11 +35,8 @@ class InteractionModal extends React.Component {
 
     }
 
-    handleAdd = (e) => {
-
-        //adds drug to database
-
-
+    handleAdd = () => {
+        API.updatePaitient(this.props._id, this.state.searchParam);
     }
 
     render() {

@@ -1,6 +1,6 @@
 import axios from "axios";
 export default function searchInteractions(name) {
-        let name = "lipitor";
+        //let name = "lipitor";
         axios.get(`https://rxnav.nlm.nih.gov/REST/rxcui?name=${name}`)
         .then( (result) => {
             let rxcui = result.getElementsByTagName("rxNormId")[0];

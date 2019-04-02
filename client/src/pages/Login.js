@@ -7,22 +7,29 @@ import { Input, FormBtn, PasswordInput } from "../components/Form";
 
 
 class Login extends Component {
-    state = {
-        doctors: [],
-        name: "",
-        username: "",
-        password: ""
+    constructor(props) {
+        super(props);
+        this.state = {
+            doctors: [],
+            name: "",
+            username: "",
+            password: ""
+        }
+        this.loadDoctors = this.loadDoctors.bind(this)
     }
 
     componentDidMount() {
         this.loadDoctors();
+        console.log(this.state.doctors)
     }
 
     loadDoctors = () => {
         API.getDoctors()
-            .then(res =>
+            .then(res => {
+                console.log(res)
                 this.setState({ doctors: res.data, name: "", username: "", password: "" })
-            )
+                
+            })
             .catch(err => console.log(err));
     }
     handleInputChange = event => {

@@ -11,7 +11,7 @@ function Nav() {
                 {/* <a className="navbar-band" href="/">
                     Doc Docs
                 </a> */}
-                <a className="nav-item " href="/home"><i class="fa fa-home"></i>Home</a>
+                <a className="nav-item " href="/home"><i className="fa fa-home"></i>Home</a>
                 {/* <a className="nav-item " href="/scheduler/:name">Scheduler</a> */}
                 <a className="nav-item " href="/login">Login</a>
            

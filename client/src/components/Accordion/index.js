@@ -2,6 +2,7 @@ import React from "react";
 import { Accordion, AccordionItem } from 'react-light-accordion';
 import './style.css';
 import { Col, Row } from "../Grid";
+import InteractionModal from "../InteractionModal"
 
 function AccordionMain(props) {
     return (
@@ -14,7 +15,7 @@ function AccordionMain(props) {
             <div>
                 <Accordion atomic={true}>
 
-                    <AccordionItem title="General Infirmation">
+                    <AccordionItem title="General Information">
                         <Row>
                             <Col size="md-4 sm-4">
                                 <h4>Age : {props.age}</h4>
@@ -34,9 +35,10 @@ function AccordionMain(props) {
                     <AccordionItem title="Medications & Conditions">
                     <Row>
                             <Col size="md-6 sm-6">
-                                <h4 onClick = {}>Medications : {props.medications}</h4>                                
+                                <h4>Medications : {props.medications}</h4>
+                                <button data-toggle="modal" target = "#interactionModal">Add New Medications</button>                                
                             </Col>
-                            <Modal id="interactionModal" record={this.state.medicalRecord} />
+                            <InteractionModal id="interactionModal" drugs={props.medications} _id = {props.id}/>
                             <Col size="md-6 sm-6">
                                 <h4>Conditions : {props.conditions}</h4>                                
                             </Col>                            
