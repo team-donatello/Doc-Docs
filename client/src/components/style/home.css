@@ -21,12 +21,10 @@ img {
     margin-left: auto;
     margin-right: auto;
     margin-top: 90px;
-    width: 50%;
+    width: 80%;
 }
 
 background {
-    color: black;
-    background-position: center;
     background-size: cover;
-    background-repeat: no-repeat;
+    
 }
