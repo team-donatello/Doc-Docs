@@ -3,6 +3,7 @@ import Jumbotron from "../components/Jumbotron";
 import { Col, Row, Container } from "../components/Grid";
 import API from "../utils/API";
 import { Input, FormBtn, PasswordInput } from "../components/Form";
+import "../components/style/login.css";
 // import { Link } from "react-router-dom";
 
 
@@ -62,8 +63,13 @@ class Login extends Component {
             <Container fluid>
                 <Row>
                     <Col size="md-12 sm-12">
-                        <Jumbotron>
-                            <h1>Doctor Login page</h1>
+                    <style>
+                    @import url('https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300');
+                    </style> 
+                    <Jumbotron>
+                        
+                            <h1>Doctor Login </h1>
+                            
                         </Jumbotron>
                     </Col>
                 </Row>
@@ -89,7 +95,7 @@ class Login extends Component {
                             >
                                 Login
                             </FormBtn>
-
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQzEgJDYO5AuG-reU0v0Ok9YmzOGOkAopb6gFZzZTUQlpuCF7qAUw" height="220" width="850"></img>
 
                         </Col>
                     </Row>

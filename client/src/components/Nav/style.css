@@ -6,11 +6,14 @@
 }
 .navbar-band{
     color:white;
-    float: right;
+    float: left;
 }
 
 .nav-item{
     color: white;
-    margin-left: 15px;    
+    float: right;
+    margin-left: 250px;  
+    /* margin-left: 700px;  
+    display: inline-block; */
     font-family: 'Open Sans Condensed', sans-serif;
 }

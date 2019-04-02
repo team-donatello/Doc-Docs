@@ -1,9 +1,32 @@
 .jumbotron {
     border: solid;
-    border-color: black;
-    border-width: 2px;
+    /* border-color: black; */
+  
     /* margin-top: 200px; */
-    background-color:white;
-
+    background-color:rgb(255, 255, 255);
+    font-family: 'Open Sans Condensed', sans-serif;
 }
 
+
+
+.container {
+   
+    width: 100%;
+}
+
+
+img {
+    border-radius: 1px;
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 90px;
+    width: 50%;
+}
+
+background {
+    color: black;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}

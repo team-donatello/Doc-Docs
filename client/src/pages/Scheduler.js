@@ -42,7 +42,7 @@ class Scheduler extends Component {
                 <Row>
                     <Col size="md-12 sm-12">
                         <Jumbotron>
-                            <h1>{this.props.match.params.name}'s Schedule</h1>
+                            <h1>{this.props.match.params.name + "'s Schedule"}</h1>
                         </Jumbotron>
                     </Col>
                 </Row>
