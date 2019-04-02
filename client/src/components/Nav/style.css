@@ -12,8 +12,8 @@
 .nav-item{
     color: white;
     float: right;
-    /* margin-left: 250px;   */
-    /* margin-left: 700px;  
-    display: inline-block; */
+    margin-left: 250px;  
+    margin-left: 700px;   
+    display: inline-block; 
     font-family: 'Open Sans Condensed', sans-serif;
 }
