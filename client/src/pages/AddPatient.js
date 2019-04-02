@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import { DayPilot, DayPilotScheduler } from "daypilot-pro-react";
 import "../components/style/addPatient.css"
 
+
 class AddPatient extends Component {
     state = {
         freeDoctorArry: [],

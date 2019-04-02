@@ -3,12 +3,14 @@
     /* border-color: black; */
   
     /* margin-top: 200px; */
-    background-color:white;
+    background-color:rgb(255, 255, 255);
     font-family: 'Open Sans Condensed', sans-serif;
 }
 
+
+
 .container {
-    background-color: black;
+   
     width: 100%;
 }
 
@@ -20,4 +22,11 @@ img {
     margin-right: auto;
     margin-top: 90px;
     width: 50%;
+}
+
+background {
+    color: black;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
 }
