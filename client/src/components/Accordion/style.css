@@ -1,6 +1,6 @@
 .accordion {
     border-radius: 5px;
-    border: 1px solid #d9d9d9;
+    border: 4px solid #d9d9d9;
   }
   .accordion .accordion-item:first-child .title {
     border-top-left-radius: 5px;

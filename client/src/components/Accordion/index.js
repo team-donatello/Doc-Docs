@@ -14,7 +14,7 @@ function AccordionMain(props) {
             <div>
                 <Accordion atomic={true}>
 
-                    <AccordionItem title="General Infirmation">
+                    <AccordionItem title="General Information">
                         <Row>
                             <Col size="md-4 sm-4">
                                 <h4>Age : {props.age}</h4>
