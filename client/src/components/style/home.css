@@ -24,7 +24,7 @@ img {
     width: 80%;
 }
 
-background {
-    background-size: cover;
-    
+
+.background-black {
+    background-color: black !important;
 }
