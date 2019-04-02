@@ -25,7 +25,7 @@ class Login extends Component {
             </style>
                             <h1>Doc-Docs</h1>
                             <h2>Managing your schedule just got a whole lot easier.</h2>
-                             <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR9KAKD2BKnLB4ejeoEndPOw2xlMGbwNz64L5FPx9j2wji5WE2d" height="150" width="850"></img>
+                             <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR9KAKD2BKnLB4ejeoEndPOw2xlMGbwNz64L5FPx9j2wji5WE2d" height="250" width="950"></img>
 
                             
                         
