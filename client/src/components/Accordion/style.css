@@ -11,7 +11,7 @@
     border-bottom-right-radius: 5px;
   }
   .accordion .accordion-item .title {
-    background-color: #f6f6f6;
+    background-color: #C2E2E5;
     color: #444;
     cursor: pointer;
     padding: 18px;
@@ -35,7 +35,7 @@
     overflow: hidden;
   }
   .accordion .accordion-item.active .title {
-    background-color: #C2E2E5;
+    background-color: white;
   }
   .accordion .accordion-item.active .title:after {
     content: '\2796';
