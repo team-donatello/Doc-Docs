@@ -35,7 +35,7 @@
     overflow: hidden;
   }
   .accordion .accordion-item.active .title {
-    background-color: #eeeeee;
+    background-color: #C2E2E5";
   }
   .accordion .accordion-item.active .title:after {
     content: '\2796';
