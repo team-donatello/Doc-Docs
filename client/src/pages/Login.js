@@ -69,8 +69,8 @@ class Login extends Component {
                 {/* <LoginPage></LoginPage> */}
                 <Container>
                     <Row>
-                        <Col size="md-12 sm-12">
-                            <Input
+                        <Col size="md-8 sm-8" margin-left="400px">
+                            <Input margin-left="400px"
                                 value={this.state.username}
                                 onChange={this.handleInputChange}
                                 name="username"
@@ -88,7 +88,7 @@ class Login extends Component {
                             >
                                 Login
                             </FormBtn>
-                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQzEgJDYO5AuG-reU0v0Ok9YmzOGOkAopb6gFZzZTUQlpuCF7qAUw" height="220" width="650"></img>
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQzEgJDYO5AuG-reU0v0Ok9YmzOGOkAopb6gFZzZTUQlpuCF7qAUw" height="150"></img>
 
                         </Col>
                     </Row>
