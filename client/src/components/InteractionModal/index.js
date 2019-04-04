@@ -44,9 +44,8 @@ class InteractionModal extends React.Component {
         return (
 
             <div>
-                <a href="#interactionModal" rel="modal:open">
                     <button type="button" className="btn btn-primary" data-toggle="modal" data-target="#interactionModal">Add New Medications</button>
-                </a>  
+                 
             
             <div className = "modal" id = "interactionModal">
                 <div className = "modal-dialog">
