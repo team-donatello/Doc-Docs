@@ -54,4 +54,8 @@
     transition: max-height 0.25s ease-in;
     
   }
+
+  h4 {
+    font-family: 'Open Sans Condensed', sans-serif;
+  }
   
