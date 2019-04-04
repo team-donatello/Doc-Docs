@@ -1,16 +1,20 @@
 import axios from "axios";
-export default function searchInteractions(name) {
+
+export default {
+        searchInteractions: async function (name) {
         //let name = "lipitor";
-        axios.get(`https://rxnav.nlm.nih.gov/REST/rxcui?name=${name}`)
-        .then( (result) => {
-            let rxcui = result.getElementsByTagName("rxNormId")[0];
-            console.log(rxcui);
-            axios.get(`https://rxnav.nlm.nih.gov/REST/interaction/interaction.json?rxcui=${rxcui}`)
-            .then( (result) => {
+            const result = await axios.get(`https://rxnav.nlm.nih.gov/REST/rxcui?name=${name}`)
                 console.log(result);
-                return result;
-            })
-        })
+                //let rxcui = new DOMParser().parseFromString(result, "application/xml").getElementsByTagName("rxNormId")[0];
+                let rxcui = result.data.idGroup.rxnormId[0];
+
+                console.log(rxcui);
+                const secondresult = await axios.get(`https://rxnav.nlm.nih.gov/REST/interaction/interaction.json?rxcui=${rxcui}`)
+                    console.log(secondresult);
+                    return secondresult.data;
+            
+            
+        }
 }
 
 

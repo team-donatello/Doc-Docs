@@ -19,16 +19,16 @@ class Login extends Component {
         this.loadDoctors = this.loadDoctors.bind(this)
     }
 
-    componentDidMount() {
+    componentWillMount() {
         this.loadDoctors();
-        console.log(this.state.doctors)
+        
     }
 
     loadDoctors = () => {
         API.getDoctors()
             .then(res => {
-                console.log(res)
                 this.setState({ doctors: res.data, name: "", username: "", password: "" })
+                console.log(this.state.doctors)
                 
             })
             .catch(err => console.log(err));

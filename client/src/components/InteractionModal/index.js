@@ -8,15 +8,16 @@ class InteractionModal extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            searchParam: "",
+            searchParam: "tylenol",
             searchResult: []
         }
         this.handleSearchInputChange = this.handleSearchInputChange.bind(this);
         this.handleAdd = this.handleAdd.bind(this);
     }
 
-    componentDidUpdate = async() => {
+    async componentDidMount(){
         let result = await drugAPI.searchInteractions(this.state.searchParam);
+        console.log(result);
         let filteredResult = result.interactionTypeGroup[0].interactionType[0].interactionPair.filter(drug => this.props.drugs.includes(drug.interactionConcept[1].sourceConceptItem.name));
         let displayResult = filteredResult.map( drug => drug = {
             name: drug.interactionConcept[1].sourceConceptItem.name,
@@ -38,14 +39,14 @@ class InteractionModal extends React.Component {
     handleAdd = () => {
         API.updatePaitient(this.props._id, this.state.searchParam);
     }
-
+    
     render() {
         return (
-            <div className = "modal fade" id = "interactionModal" role ="dialog">
+            
                 <div className = "modal-dialog">
                 
                     <div className = "modal">
-                        <button type="button" class="close" data-dismiss="modal"> &times; </button>
+                        <button type="button" className="close" data-dismiss="modal"> &times; </button>
                         <div className = "input-group">
                             <input type= "text" className = "form-control" placeholder="Enter New Perscription" value = {this.state.searchParam} onChange = {this.handleSearchInputChange}/>
                             <div className = "input-group-btn">
@@ -53,14 +54,15 @@ class InteractionModal extends React.Component {
                                     <i className = "glyphicon glyphicon-plus" />
                                 </button>
                             </div>
+                            
+                        </div>
+                        <div className = "resultDiv">
+                            {this.state.searchResult.length ? this.state.searchResult.map(drug => <div key={drug.name}><h3>{drug.name}</h3><p>{drug.description}</p></div>) : <p>No Adverse Drug Interactions Found</p>}
                         </div>
                     </div>
-                    <div className = "resultDiv">
-                        {this.state.searchResult.length ? this.state.searchResult.map(drug => <div key={drug.name}><h3>{drug.name}</h3><p>{drug.description}</p></div>) : <p>No Adverse Drug Interactions Found</p>}
-                    </div>
+                    
                 </div>
             
-            </div>
         )
     }
 
