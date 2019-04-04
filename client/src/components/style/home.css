@@ -4,7 +4,8 @@
   
     /* margin-top: 200px; */
     background-color:rgb(255, 255, 255);
-    font-family: 'Open Sans Condensed', sans-serif;
+    /* font-family: 'Open Sans Condensed', sans-serif; */
+    font-family: 'Baloo Chettan', cursive;
 }
 
 
@@ -27,4 +28,8 @@ img {
 
 .background-black {
     background-color: black !important;
+}
+
+h1 {
+    font-family: 'Baloo Chettan', cursive;
 }
