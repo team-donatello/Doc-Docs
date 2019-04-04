@@ -6,12 +6,12 @@
   .accordion .accordion-item:first-child .title {
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
-    font-family: 'Open Sans Condensed', sans-serif;
+  
   }
   .accordion .accordion-item:last-child .title {
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
-    font-family: 'Open Sans Condensed', sans-serif;
+   
   }
   .accordion .accordion-item .title {
     background-color: #C2E2E5;
@@ -23,7 +23,7 @@
     border: none;
     outline: none;
     transition: 0.4s;
-    font-family: 'Open Sans Condensed', sans-serif;
+   
   }
   .accordion .accordion-item .title:after {
     content: '\02795';
