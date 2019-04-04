@@ -88,7 +88,7 @@ class Login extends Component {
                             >
                                 Login
                             </FormBtn>
-                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQXp0Fn5O96DdSoLGcN6sC665oZotBrEFvW_eqme6DwVl79beh2WQ" position="center"></img>
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQXp0Fn5O96DdSoLGcN6sC665oZotBrEFvW_eqme6DwVl79beh2WQ" height="175" position="center"></img>
 
 
                         </Col>
