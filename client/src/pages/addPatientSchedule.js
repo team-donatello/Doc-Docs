@@ -50,7 +50,7 @@ class Admin extends Component {
                 });
             }
         }
-        console.log(this.state.freeDoctorArry);
+        // console.log(this.state.freeDoctorArry);
     }
 
     loadAllData = () => {
@@ -83,14 +83,15 @@ class Admin extends Component {
         })
     }
     handleFormSubmit = event => {
-        event.preventDefault();        
-        if (this.state.name && this.state.age && this.state.gender && this.state.height && this.state.weight && this.state.heartrate && this.state.bloodpressure && this.state.bodyweight && this.state.email ) {
+        event.preventDefault();
+        if (this.state.name && this.state.age && this.state.gender && this.state.height && this.state.weight && this.state.heartrate && this.state.bloodpressure && this.state.bodyweight && this.state.email) {
             // save patients
             API.savePatients({
                 name: this.state.name,
                 age: this.state.age,
                 gender: this.state.gender,
                 height: this.state.height,
+
                 weight: this.state.weight,
                 heartrate: this.state.heartrate,
                 bloodpressure: this.state.bloodpressure,
@@ -109,7 +110,7 @@ class Admin extends Component {
                 .then(res => this.loadAllData())
                 .catch(err => console.log(err));
 
-            // save patients
+            // // save patients
             API.saveScheduler({
                 id: Math.floor(Math.random() * 10000),
                 text: this.state.name,
@@ -124,6 +125,15 @@ class Admin extends Component {
             })
                 .then(res => this.loadAllData())
                 .catch(err => console.log(err))
+            console.log("this is time"+this.props.match.params.name)
+            API.confirmationmail({
+                to: this.state.email,
+                subject: 'Appointment Has Been Created', 
+                html: `Thank you for scheduling your appointment on Date ${this.props.match.params.id}.  
+                Please be on time and call 24 hours in advance if you need to cancel or change the time.
+                  Thank you.`
+            })
+            
             window.location.reload();
 
         } else {
@@ -284,7 +294,7 @@ class Admin extends Component {
                                         value={this.state.email}
                                         onChange={this.handleInputChange}
                                         name="email"
-                                        placeholder="Email">
+                                        placeholder="Email (Required)">
                                     </Input>
                                 </Col>
                                 <Col size="md-6 sm-6">
