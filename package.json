@@ -25,6 +25,7 @@
     "express": "^4.16.4",
     "if-env": "^1.0.4",
     "mongoose": "^5.3.16",
+    "nodemailer": "^6.0.0",
     "react-big-scheduler": "^0.2.6",
     "react-bootstrap-date-picker": "^5.1.0",
     "react-date-picker": "^7.4.0",

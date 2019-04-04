@@ -3,6 +3,7 @@ const db = require("../models");
 
 mongoose.connect(
   process.env.MONGODB_URI ||
+  // "mongodb://heroku_5qwh04fh:5i8lm8mti0phg2rl5nrmpmo13t@ds155634.mlab.com:55634/heroku_5qwh04fh"
   "mongodb://localhost/Doc-Docs"
 );
 
@@ -125,8 +126,8 @@ const scheduler = [{
 {
   id: 9,
   text: "Bob",
-  start: "2019-04-10T00:00:00",
-  end: "2019-04-10T00:00:00",
+  start: "2019-04-10T00:00:00.001",
+  end: "2019-04-10T00:00:00.001",
   resource: "A",
   doctorname: "Jon123"
 },
@@ -315,13 +316,13 @@ const ptSeed = [
     bloodpressure: "120/80",
 
     medications: [
-      "Zolpidem",
-      "THC",
-      "Lisinopril"
+      "Zolpidem, ",
+      "THC, ",
+      "Lisinopril, "
     ],
 
     conditions: [
-      "Insomnia",
+      "Insomnia, ",
       "Hypertension"
     ],
 
