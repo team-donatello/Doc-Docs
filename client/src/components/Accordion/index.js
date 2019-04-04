@@ -12,10 +12,11 @@ function AccordionMain(props) {
             <h2>{props.date}</h2> */}
 
             <div>
+            @import url('https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300');
                 <Accordion atomic={true}>
                
                     <AccordionItem title="General Information">
-                    @import url('https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300');
+                   
                         <Row>
                             <Col size="md-4 sm-4">
                                 <h4>Age : {props.age}</h4>
