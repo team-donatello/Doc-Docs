@@ -3,6 +3,7 @@ import { Accordion, AccordionItem } from 'react-light-accordion';
 import './style.css';
 import { Col, Row } from "../Grid";
 import InteractionModal from "../InteractionModal"
+import Modal from "../test_Modal"
 
 function AccordionMain(props) {
     return (
@@ -36,15 +37,15 @@ function AccordionMain(props) {
                     <Row>
                             <Col size="md-6 sm-6">
                                 <h4>Medications : {props.medications}</h4>
-                                <a href= "#interactionModal" rel="modal:open">
-                                <button type = "button" className = "btn btn-primary" data-toggle="modal" data-target = "#interactionModal">Add New Medications</button>
-                                </a>                            
+                                {/* <InteractionModal drugs={props.medications} _id = {props.id}/>  */ }
+                                <Modal />
+                                            
                             </Col>
                             
                             <Col size="md-6 sm-6">
                                 <h4>Conditions : {props.conditions}</h4>                                
                             </Col>                            
-                        </Row>
+                    </Row>
                         
                     </AccordionItem>
 
@@ -72,9 +73,9 @@ function AccordionMain(props) {
 
                 </Accordion>
             </div>
-            <div className = "modal" id = "interactionModal">
-                    <InteractionModal drugs={props.medications} _id = {props.id}/>
-            </div>
+            
+            
+            
 
         </div>
     );
