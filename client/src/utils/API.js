@@ -31,8 +31,12 @@ export default {
     saveDoctor: function(doctorData){
         return axios.post("/api/doctors", doctorData);
     },
-    updatePatient: function(id, drugData) {
-        return axios.update(`/api/patients/${id}`, drugData);
-    }    
+    confirmationmail: function(mailData){
+        return axios.post("/api/confirmationmail", mailData);
+    }, 
+    // Update a scheduler to the database
+    updateScheduler: function(id, schedulerData){
+        return axios.put("/api/scheduler/"+id, schedulerData);
+    },   
     
 }

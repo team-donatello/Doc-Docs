@@ -24,7 +24,7 @@ class AddPatient extends Component {
     componentDidMount() {
         this.loadAllData();
         let arr = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J"];
-
+        
         let start = new DayPilot.Date.today().firstDayOfWeek();
         for (let y = 1; y <= 10; y++) {
             for (let x = 0; x < 31; x++) {
@@ -59,6 +59,47 @@ class AddPatient extends Component {
             doctorname: e.target.value,
         })
     }
+
+    // generateEvents = () => {
+   
+    //     const doctorEvents = this.state.schedulers.filter(scheduler => scheduler.doctorname === this.state.doctorname);
+    
+    //     const withoutDoctors = []
+    
+    //     for(let i=0; i < this.state.freeDoctorArry.length; i++) {
+    //         const fda = this.state.freeDoctorArry[i];
+
+    //         let doctorEventExists = false;
+
+    //         for(var j=0; j < doctorEvents.length; j++) {
+    //             const de = doctorEvents[j];
+    //             if( de.start === fda.start.value && de.end === fda.end.value){
+    //                 doctorEventExists = true;
+    //             }
+    //         }
+
+    //         if(!doctorEventExists) {
+    //             withoutDoctors.push(fda);
+    //         }
+    //     }
+        
+        
+    //     // this.state.freeDoctorArry.filter(fda => {
+    //     //     const foundEvents = doctorEvents.filter(de => {
+    //     //         return  de.start !== fda.start.value || de.end !== fda.end.value}
+    //     //         );
+
+    //     //     return foundEvents.length !== doctorEvents.length;
+    //     // })
+
+    //     console.log(doctorEvents);
+    //     console.log(withoutDoctors);
+
+    //     let events = doctorEvents.concat(withoutDoctors);
+        
+
+    //     return events;
+    // }
     
     render() {
         return (
@@ -114,18 +155,30 @@ class AddPatient extends Component {
                                 { name: "6:00 PM", id: "J" }
                             ]}
                             events={[...this.state.schedulers.filter(scheduler => scheduler.doctorname === this.state.doctorname), ...this.state.freeDoctorArry]}
+                                //this.generateEvents()}
                             ref={component => { this.scheduler = component && component.control; }}
                             onEventClick={args => {
                                 console.log("Click : ", args.e.data.id, args.e.data.resource, args.e.data.start);
+                                
                                 let modal = new DayPilot.Modal({
                                     id: args.e.data.id,
                                     onClosed: function(args) {
-                                        if (args.result) {  // args.result is empty when modal is closed without submitting
-                                            // loadEvents();
-                                        }
-                                    }
+                                        console.log("Modal dialog closed");
+                                      },
                                 });
                                 modal.showUrl("/addPatientSchedule/" + args.e.data.start+"/"+args.e.data.resource+"/"+this.state.doctorname);
+                            }}
+                            onEventMoved={args => {
+                                console.log("Event moved: ", args.e.data.id, args.newStart, args.newEnd, args.newResource);
+                                this.scheduler.message("Appointment Change : " + args.e.data.text +"  Date : "+ args.newEnd);
+                                API.updateScheduler(args.e.data.id,
+                                    {                                                         
+                                    start: args.newEnd,
+                                    end: args.newEnd,
+                                    resource: args.newResource
+                                })
+                                // .then(res => this.setState({ schedulers: res.data }))
+                                .catch(err => console.log(err));
                             }}
                         >
                         </DayPilotScheduler>
