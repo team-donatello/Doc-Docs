@@ -13,7 +13,7 @@ function AccordionMain(props) {
 
             <div>
                 <Accordion atomic={true}>
-
+                @import url('https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300');
                     <AccordionItem title="General Information">
                         <Row>
                             <Col size="md-4 sm-4">
