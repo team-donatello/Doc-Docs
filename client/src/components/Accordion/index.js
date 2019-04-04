@@ -15,7 +15,7 @@ function AccordionMain(props) {
 
             <div>
                 <style>
-            @import url('https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300');
+            {@import url('https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300');}
             </style>
                 <Accordion atomic={true}>
                
@@ -42,6 +42,7 @@ function AccordionMain(props) {
                             <Col size="md-6 sm-6">
                                 <h4>Medications : {props.medications}</h4>
                                 {/* <InteractionModal drugs={props.medications} _id = {props.id}/>  */ }
+                                
                                 <Modal />
                                             
                             </Col>
