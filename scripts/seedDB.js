@@ -3,8 +3,8 @@ const db = require("../models");
 
 mongoose.connect(
   process.env.MONGODB_URI ||
-  // "mongodb://heroku_5qwh04fh:5i8lm8mti0phg2rl5nrmpmo13t@ds155634.mlab.com:55634/heroku_5qwh04fh"
-  "mongodb://localhost/Doc-Docs"
+  "mongodb://heroku_5qwh04fh:5i8lm8mti0phg2rl5nrmpmo13t@ds155634.mlab.com:55634/heroku_5qwh04fh"
+  // "mongodb://localhost/Doc-Docs"
 );
 
 const doctor = [
@@ -214,11 +214,95 @@ const scheduler = [{
   resource: "A",
   doctorname: "Jon123"
 },
+
+{
+  id: 26, 
+  text: "Warne",
+  start: "2019-04-06T00:00:00",
+  end: "2019-04-06T00:00:00",
+  resource: "C",
+  barColor: "#38761d",
+  barBackColor: "#93c47d",
+  backColor: "#cc0000",
+  color: "white",
+  doctorname: "Jon123"
+},
+{
+  id: 27, 
+  text: "Clark", 
+  start: "2019-04-05T00:00:00", 
+  end: "2019-04-05T00:00:00", 
+  resource: "D", 
+  barColor: "#f1c232", 
+  barBackColor: "#f1c232", 
+  backColor: "#e69138",
+  doctorname: "Jon123"
+},
+{ 
+  id: 28, 
+  text: "Gayle", 
+  start: "2019-04-06T00:00:00", 
+  end: "2019-04-06T00:00:00", 
+  resource: "E", 
+  barColor: "#cc0000", 
+  barBackColor: "#ea9999", 
+  backColor: "#3c78d8",
+  doctorname: "Jon123" 
+},
+{ 
+  id: 29, 
+  text: "Warner", 
+  start: "2019-04-05T00:00:00", 
+  end: "2019-04-05T00:00:00", 
+  resource: "F",
+  doctorname: "Jon123"
+},
+{ 
+  id: 30, 
+  text: "Marky", 
+  start: "2019-04-06T00:00:00", 
+  end: "2019-04-06T00:00:00", 
+  resource: "G", 
+  barColor: "#38761d", 
+  barBackColor: "#93c47d", 
+  backColor: "#cc0000",
+  doctorname: "Jon123" 
+},
+{ 
+  id: 31, 
+  text: "Ponting", 
+  start: "2019-04-05T00:00:00", 
+  end: "2019-04-05T00:00:00", 
+  resource: "H", 
+  barColor: "#f1c232", 
+  barBackColor: "#f1c232", 
+  backColor: "#e69138",
+  doctorname: "Jon123" 
+},
+{ 
+  id: 32, 
+  text: "MaxWell", 
+  start: "2019-04-06T00:00:00", 
+  end: "2019-04-06T00:00:00", 
+  resource: "I", 
+  barColor: "#cc0000", 
+  barBackColor: "#ea9999", 
+  backColor: "#6aa84f",
+  doctorname: "Jon123" 
+},
+{
+  id: 33,
+  text: "Taylor",
+  start: "2019-04-05T00:00:00",
+  end: "2019-04-05T00:00:00",
+  resource: "A",
+  doctorname: "Jon123"
+},
 {
   id: 18, 
   text: "Sara",
-  start: "2019-04-19T00:00:00",
-  end: "2019-04-19T00:00:00",
+  start: "2019-04-04T00:00:00",
+  end: "2019-04-04T00:00:00",
   resource: "C",
   barColor: "#38761d",
   barBackColor: "#93c47d",
@@ -229,8 +313,8 @@ const scheduler = [{
 {
   id: 19, 
   text: "Mark", 
-  start: "2019-04-20T00:00:00", 
-  end: "2019-04-20T00:00:00", 
+  start: "2019-04-05T00:00:00", 
+  end: "2019-04-05T00:00:00", 
   resource: "D", 
   barColor: "#f1c232", 
   barBackColor: "#f1c232", 
@@ -240,8 +324,8 @@ const scheduler = [{
 { 
   id: 20, 
   text: "Dylan", 
-  start: "2019-04-21T00:00:00", 
-  end: "2019-04-21T00:00:00", 
+  start: "2019-04-06T00:00:00", 
+  end: "2019-04-06T00:00:00", 
   resource: "E", 
   barColor: "#cc0000", 
   barBackColor: "#ea9999", 
@@ -252,16 +336,16 @@ const scheduler = [{
 { 
   id: 21, 
   text: "Bob", 
-  start: "2019-04-22T00:00:00", 
-  end: "2019-04-22T00:00:00", 
+  start: "2019-04-04T00:00:00", 
+  end: "2019-04-04T00:00:00", 
   resource: "F",
   doctorname: "Tom123" 
 },
 { 
   id: 22, 
   text: "Sara", 
-  start: "2019-04-23T00:00:00", 
-  end: "2019-04-23T00:00:00", 
+  start: "2019-04-05T00:00:00", 
+  end: "2019-04-05T00:00:00", 
   resource: "G", 
   barColor: "#38761d", 
   barBackColor: "#93c47d", 
@@ -271,8 +355,8 @@ const scheduler = [{
 { 
   id: 23, 
   text: "Nikunj Timberlake", 
-  start: "2019-04-24T00:00:00", 
-  end: "2019-04-24T00:00:00", 
+  start: "2019-04-04T00:00:00", 
+  end: "2019-04-04T00:00:00", 
   resource: "H", 
   barColor: "#f1c232", 
   barBackColor: "#f1c232", 
@@ -282,8 +366,8 @@ const scheduler = [{
 { 
   id: 24, 
   text: "Andrew Moriarty", 
-  start: "2019-04-25T00:00:00", 
-  end: "2019-04-25T00:00:00", 
+  start: "2019-04-06T00:00:00", 
+  end: "2019-04-06T00:00:00", 
   resource: "I", 
   barColor: "#cc0000", 
   barBackColor: "#ea9999", 
@@ -356,12 +440,12 @@ const ptSeed = [
     bloodpressure: "120/80",
 
     medications: [
-      "Zolpidem",
+      "Zolpidem, ",
       "THC"      
     ],
 
     conditions: [
-      "Insomnia",
+      "Insomnia, ",
       "Hypertension"
     ],
 
@@ -395,12 +479,12 @@ const ptSeed = [
     bloodpressure: "122/85",
 
     medications: [
-      "Zolpidem",
+      "Zolpidem, ",
       "THC"      
     ],
 
     conditions: [
-      "Insomnia",
+      "Insomnia, ",
       "Hypertension"
     ],
 
@@ -434,12 +518,12 @@ const ptSeed = [
     bloodpressure: "122/85",
 
     medications: [
-      "Zolpidem",
+      "Zolpidem, ",
       "THC"      
     ],
 
     conditions: [
-      "Insomnia",
+      "Insomnia, ",
       "Hypertension"
     ],
 
@@ -473,12 +557,12 @@ const ptSeed = [
     bloodpressure: "122/85",
 
     medications: [
-      "Zolpidem",
+      "Zolpidem, ",
       "THC"      
     ],
 
     conditions: [
-      "Insomnia",
+      "Insomnia, ",
       "Hypertension"
     ],
 
@@ -512,13 +596,13 @@ const ptSeed = [
     bloodpressure: "120/80",
 
     medications: [
-      "Vyvanse",
-      "Norco",
-      "Humira"
+      "Vyvanse, ",
+      "Norco, ",
+      "Humira, "
     ],
 
     conditions: [
-      "Rheumatoid Arthritis",
+      "Rheumatoid Arthritis, ",
       "ADHD"
     ],
 
@@ -552,13 +636,13 @@ const ptSeed = [
     bloodpressure: "120/80",
 
     medications: [
-      "Vyvanse",
-      "Norco",
+      "Vyvanse, ",
+      "Norco, ",
       "Humira"
     ],
 
     conditions: [
-      "Rheumatoid Arthritis",
+      "Rheumatoid Arthritis, ",
       "ADHD"
     ],
 
@@ -592,13 +676,13 @@ const ptSeed = [
     bloodpressure: "134/82",
 
     medications: [
-      "Xanax",
-      "Lyrica",
+      "Xanax, ",
+      "Lyrica, ",
       "Xyzal"
     ],
 
     conditions: [
-      "PTSD",
+      "PTSD, ",
       "Seasonal Allergies"
     ],
 
@@ -632,13 +716,13 @@ const ptSeed = [
     bloodpressure: 134/82,
 
     medications: [
-      "Xanax",
-      "Lyrica",
+      "Xanax, ",
+      "Lyrica, ",
       "Xyzal"
     ],
 
     conditions: [
-      "PTSD",
+      "PTSD, ",
       "Seasonal Allergies"
     ],
 
@@ -673,23 +757,23 @@ const ptSeed = [
     bloodpressure: 150/90,
 
     medications: [
-      "Atorvastatin",
-      "Pantoprazole",
-      "Propranolol",
-      "Quinapril",
+      "Atorvastatin, ",
+      "Pantoprazole, ",
+      "Propranolol, ",
+      "Quinapril, ",
       "Fentanyl"
     ],
 
     conditions: [
-      "Hypertension",
-      "Tachycardia",
-      "Hip Dysplasia",
-      "High Cholesterol",
+      "Hypertension, ",
+      "Tachycardia, ",
+      "Hip Dysplasia, ",
+      "High Cholesterol, ",
       "GERD"
     ],
 
     allergies: [
-      "Grass",
+      "Grass, ",
       "Sunlight"
     ],
 
@@ -719,13 +803,13 @@ const ptSeed = [
     bloodpressure: 134/82,
 
     medications: [
-      "Xanax",
-      "Lyrica",
+      "Xanax, ",
+      "Lyrica, ",
       "Xyzal"
     ],
 
     conditions: [
-      "PTSD",
+      "PTSD, ",
       "Seasonal Allergies"
     ],
 
@@ -759,7 +843,7 @@ const ptSeed = [
     bloodpressure: 120/80,
 
     medications: [
-      "Memantine",
+      "Memantine, ",
       "Donepezil"
     ],
 
@@ -797,7 +881,7 @@ const ptSeed = [
     bloodpressure: 130/90,
 
     medications: [
-      "Memantine",
+      "Memantine, ",
       "Donepezil"
     ],
 
@@ -824,6 +908,348 @@ const ptSeed = [
     email: "pharmacyschooldropout47@gmail.com",
 
     phone: 3316457049
+  },
+  {
+    name: "Clark",
+    age: 25,
+    gender: "Male",
+    height: 72,
+    weight: 158,
+    heartrate: 80,
+    bloodpressure: 130/90,
+
+    medications: [
+      "Memantine, ",
+      "Donepezil"
+    ],
+
+    conditions: [
+      "Chronic Traumatic Encephalopathy"
+    ],
+
+    allergies: [
+      "Sulfa Drugs"
+    ],
+
+    surgeries: [
+      "Appendectomy"
+    ],
+
+    physician: "Dr. Charles Xavier",
+
+    mdid: 1,
+
+    bill: 10000,
+
+    nextappt: 01/06/2020,
+
+    email: "pharmacyschool@gmail.com",
+
+    phone: 3316457049
+  },
+  {
+    name: "Warne",
+    age: 25,
+    gender: "Male",
+    height: 72,
+    weight: 158,
+    heartrate: 80,
+    bloodpressure: 130/90,
+
+    medications: [
+      "Memantine, ",
+      "Donepezil"
+    ],
+
+    conditions: [
+      "Chronic Traumatic Encephalopathy"
+    ],
+
+    allergies: [
+      "Sulfa Drugs"
+    ],
+
+    surgeries: [
+      "Appendectomy"
+    ],
+
+    physician: "Dr. Charles Xavier",
+
+    mdid: 1,
+
+    bill: 10000,
+
+    nextappt: 01/06/2020,
+
+    email: "pharmacyschooldropout47@gmail.com",
+
+    phone: 3316457049
+  },
+  {
+    name: "Clark",
+    age: 25,
+    gender: "Male",
+    height: 72,
+    weight: 158,
+    heartrate: 80,
+    bloodpressure: 130/90,
+
+    medications: [
+      "Memantine",
+      
+    ],
+
+    conditions: [
+      "Chronic Traumatic Encephalopathy"
+    ],
+
+    allergies: [
+      "Sulfa Drugs"
+    ],
+
+    surgeries: [
+      "Appendectomy"
+    ],
+
+    physician: "Dr. Charles Xavier",
+
+    mdid: 1,
+
+    bill: 1000,
+
+    nextappt: 01/06/2020,
+
+    email: "claek12@gmail.com",
+
+    phone: 3316433049
+  },
+  {
+    name: "Gayle",
+    age: 40,
+    gender: "Male",
+    height: 75,
+    weight: 178,
+    heartrate: 80,
+    bloodpressure: 130/90,
+
+    medications: [
+      "Memantine, ",
+      "Donepezil"
+    ],
+
+    conditions: [
+      "Chronic Traumatic Encephalopathy"
+    ],
+
+    allergies: [
+      "Sulfa Drugs"
+    ],
+
+    surgeries: [
+      "Appendectomy"
+    ],
+
+    physician: "Dr. Charles Xavier",
+
+    mdid: 1,
+
+    bill: 3000,
+
+    nextappt: 01/06/2020,
+
+    email: "gayle12@gmail.com",
+
+    phone: 3316997049
+  },
+  {
+    name: "Warner",
+    age: 35,
+    gender: "Male",
+    height: 62,
+    weight: 1758,
+    heartrate: 80,
+    bloodpressure: 130/90,
+
+    medications: [
+      "Memantine, ",
+      "Donepezil"
+    ],
+
+    conditions: [
+      "Chronic Traumatic Encephalopathy"
+    ],
+
+    allergies: [
+      "Sulfa Drugs"
+    ],
+
+    surgeries: [
+      "Appendectomy"
+    ],
+
+    physician: "Dr. Charles Xavier",
+
+    mdid: 1,
+
+    bill: 10000,
+
+    nextappt: 01/06/2020,
+
+    email: "Warner123@gmail.com",
+
+    phone: 3316457044
+  },
+  {
+    name: "Marky",
+    age: 25,
+    gender: "Male",
+    height: 72,
+    weight: 158,
+    heartrate: 80,
+    bloodpressure: 130/90,
+
+    medications: [
+      "Memantine, ",
+      "Donepezil"
+    ],
+
+    conditions: [
+      "Chronic Traumatic Encephalopathy"
+    ],
+
+    allergies: [
+      "Sulfa Drugs"
+    ],
+
+    surgeries: [
+      "Appendectomy"
+    ],
+
+    physician: "Dr. Charles Xavier",
+
+    mdid: 1,
+
+    bill: 10000,
+
+    nextappt: 01/06/2020,
+
+    email: "pharmacyschooldropout47@gmail.com",
+
+    phone: 3316457049
+  },
+  {
+    name: "Ponting",
+    age: 42,
+    gender: "Male",
+    height: 68,
+    weight: 158,
+    heartrate: 80,
+    bloodpressure: 130/90,
+
+    medications: [
+      "Memantine, ",
+      "Donepezil"
+    ],
+
+    conditions: [
+      "Chronic Traumatic Encephalopathy"
+    ],
+
+    allergies: [
+      "Sulfa Drugs"
+    ],
+
+    surgeries: [
+      "Appendectomy"
+    ],
+
+    physician: "Dr. Charles Xavier",
+
+    mdid: 1,
+
+    bill: 10000,
+
+    nextappt: 01/06/2020,
+
+    email: "ponting1234@gmail.com",
+
+    phone: 3316457777
+  },
+  {
+    name: "MaxWell",
+    age: 42,
+    gender: "Male",
+    height: 68,
+    weight: 158,
+    heartrate: 80,
+    bloodpressure: 130/90,
+
+    medications: [
+      "Memantine, ",
+      "Donepezil"
+    ],
+
+    conditions: [
+      "Chronic Traumatic Encephalopathy"
+    ],
+
+    allergies: [
+      "Sulfa Drugs"
+    ],
+
+    surgeries: [
+      "Appendectomy"
+    ],
+
+    physician: "Dr. Charles Xavier",
+
+    mdid: 1,
+
+    bill: 10000,
+
+    nextappt: 01/06/2020,
+
+    email: "maxwell1234@gmail.com",
+
+    phone: 3316457722
+  },
+  {
+    name: "Taylor",
+    age: 42,
+    gender: "Male",
+    height: 68,
+    weight: 158,
+    heartrate: 80,
+    bloodpressure: 130/90,
+
+    medications: [
+      "Memantine, ",
+      "Donepezil"
+    ],
+
+    conditions: [
+      "Chronic Traumatic Encephalopathy"
+    ],
+
+    allergies: [
+      "Sulfa Drugs"
+    ],
+
+    surgeries: [
+      "Appendectomy"
+    ],
+
+    physician: "Dr. Charles Xavier",
+
+    mdid: 1,
+
+    bill: 10000,
+
+    nextappt: 01/06/2020,
+
+    email: "taylor1234@gmail.com",
+
+    phone: 3316459988
   }
 ];
 // console.log(db);
