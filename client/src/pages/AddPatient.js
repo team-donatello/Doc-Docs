@@ -161,9 +161,9 @@ class AddPatient extends Component {
                                 
                                 let modal = new DayPilot.Modal({
                                     id: args.e.data.id,
-                                    onClosed: function(args) {
-                                        console.log("Modal dialog closed");
-                                      },
+                                    // onClosed: function(args) {
+                                    //     console.log("Modal dialog closed");
+                                    //   },
                                 });
                                 modal.showUrl("/addPatientSchedule/" + args.e.data.start+"/"+args.e.data.resource+"/"+this.state.doctorname);
                             }}

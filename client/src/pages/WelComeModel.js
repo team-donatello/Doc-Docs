@@ -1,18 +1,12 @@
+
 import React, { Component } from "react";
 import Jumbotron from "../components/Jumbotron";
 import { Col, Row, Container } from "../components/Grid";
 import "../components/style/home.css";
-import { DayPilot } from "daypilot-pro-react";
 
-class Login extends Component {
+class WelComePage extends Component {
 
-    componentDidMount(){
-        let modal = new DayPilot.Modal({
-
-        });
-        modal.showUrl("/welcomemodel");
-    }
-
+    
 
     render() {
         return (
@@ -20,15 +14,15 @@ class Login extends Component {
                 <Row>
                     <Col size="md-12 sm-12">
                         <Jumbotron>
-                            <h1>Doc Docs Home page</h1>
+                            <h1>DISCLAIMER</h1>
                         </Jumbotron>
                     </Col>
                 </Row>
-                
+                <h2>This application, Doc-Docs, is a proof of concept. It is not certified for use in a real world professional medical environment, nor is it HIPAA compliant. You may use this application solely at your own risk.</h2>
 
             </Container>
         );
     }
 }
 
-export default Login;
+export default WelComePage;
