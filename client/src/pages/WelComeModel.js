@@ -14,7 +14,7 @@ class WelComePage extends Component {
                 <Row>
                     <Col size="md-12 sm-12">
                         <Jumbotron>
-                            <h1>DISCLAIMER</h1>
+                            <h5>DISCLAIMER</h5>
                         </Jumbotron>
                     </Col>
                 </Row>
