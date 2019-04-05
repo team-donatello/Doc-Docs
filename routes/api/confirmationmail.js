@@ -8,15 +8,6 @@ let transporter = nodemailer.createTransport({
         pass: 'Docdoc47829'
     }
 });
-// const mailOptions = {
-//     from: 'DocDocsMailer@gmail.com', // sender address
-//     to: req.body.to, // list of receivers
-//     subject: 'Appointment Has Been Created', // Subject line
-//     html: `<p>Appoinment conform</p>`
-//     // <p>${this.state.name}</p>
-//     //        <p>${this.props.match.params.id}</p>
-//     //        <p>${this.state.email}</p>
-// };
 
 
 router.post('/', function (req, res) {
@@ -34,7 +25,7 @@ router.post('/', function (req, res) {
         if (err)
             console.log(err)
         else
-            console.log(info);
+            // console.log(info);
             res.send('Email sent successfully');
     });
 });

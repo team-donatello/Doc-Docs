@@ -2,11 +2,19 @@ import React, { Component } from "react";
 import Jumbotron from "../components/Jumbotron";
 import { Col, Row, Container } from "../components/Grid";
 import "../components/style/home.css";
+import { DayPilot } from "daypilot-pro-react";
 
 document.body.style = 'background: #4361A3;';
 
 class Login extends Component {
  
+
+    componentDidMount(){
+        let modal = new DayPilot.Modal({
+
+        });
+        modal.showUrl("/welcomemodel");
+    }
 
 
     render() {

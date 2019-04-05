@@ -125,7 +125,7 @@ class Admin extends Component {
             })
                 .then(res => this.loadAllData())
                 .catch(err => console.log(err))
-            console.log("this is time"+this.props.match.params.name)
+            
             API.confirmationmail({
                 to: this.state.email,
                 subject: 'Appointment Has Been Created', 
@@ -133,14 +133,14 @@ class Admin extends Component {
                 Please be on time and call 24 hours in advance if you need to cancel or change the time.
                   Thank you.`
             })
-            
+           
             window.location.reload();
 
         } else {
             alert("Fill All form Detail");
         }
     }
-
+        
     render() {
 
         return (
@@ -310,10 +310,12 @@ class Admin extends Component {
                             <FormBtn
                                 // disabled={!(this.state.name && !this.state.age && this.state.gender && this.state.enterDate && this.state.time)}
                                 onClick={this.handleFormSubmit}
+                               
                             >
                                 Submit
 
                             </FormBtn>
+                            
                         </Col>
                     </Container>
                 </Row>
