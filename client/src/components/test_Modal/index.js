@@ -1,36 +1,48 @@
 import React from "react";
 import ReactDOM from "react-dom";
 
-const JSX_MODAL = (
-    <div className="modal fade" id="interactionModal">
-        <div className="modal-dialog">
+const modalRoot = document.getElementById("modal-root"); 
 
-            <div className="modal">
-                <button type="button" className="close" data-dismiss="modal"> &times; </button>
-                <div className="input-group">
-                    <input type="text" className="form-control" placeholder="Enter New Perscription"  />
-                    <div className="input-group-btn">
-                        <button className="btn btn-default" id="add" >
-                            <i className="glyphicon glyphicon-plus" />
-                        </button>
-                    </div>
+class Modal extends React.Component {
+    render() {
+      return ReactDOM.createPortal(
+        <div
+          style={{
+            position: 'absolute',
+            top: '0',
+            bottom: '0',
+            left: '0',
+            right: '0',
+            display: 'grid',
+            justifyContent: 'center',
+            alignItems: 'center',
+            backgroundColor: 'rgba(0,0,0,0.3)',
+            height: "100%"
+          }}
+          onClick={this.props.onClose}
+        >
+          <div
+            style={{
+              padding: 20,
+              background: '#fff',
+              borderRadius: '2px',
+              display: 'inline-block',
+              minHeight: '300px',
+              margin: '1rem',
+              position: 'relative',
+              minWidth: '300px',
+              boxShadow: '0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23)',
+              justifySelf: 'center',
+            }}
+          >
+            {this.props.children}
+            <hr />
+            <button onClick={this.props.onClose}>Close</button>
+          </div>
+        </div>,
+        modalRoot,
+      )
+    }
+  }
 
-                </div>
-                <div className="resultDiv">
-                    results
-                </div>
-            </div>
-
-        </div>
-    </div>
-
-
-);
-
-
-function Modal(props) {
-    return ReactDOM.createPortal(JSX_MODAL, document.querySelector("#modal"));
-}
-
-
-export default Modal;
+  export default Modal;

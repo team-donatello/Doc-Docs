@@ -37,6 +37,9 @@ export default {
     // Update a scheduler to the database
     updateScheduler: function(id, schedulerData){
         return axios.put("/api/scheduler/"+id, schedulerData);
-    },   
+    },
+    updatePatient(id, drugData){
+        return axios.put("/api/patients/"+id, drugData);
+    }  
     
 }
