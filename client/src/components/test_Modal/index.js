@@ -19,7 +19,7 @@ class Modal extends React.Component {
             backgroundColor: 'rgba(0,0,0,0.3)',
             height: "100%"
           }}
-          onClick={this.props.onClose}
+          //onClick={this.props.onClose}
         >
           <div
             style={{
