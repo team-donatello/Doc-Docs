@@ -21,48 +21,6 @@ class InteractionModal extends React.Component {
         this.handleSearch = this.handleSearch.bind(this)
 
     }
-
-    // async componentDidMount() {
-    //     this.setState({ loading: true });
-    //     let result = await drugAPI.searchInteractions(this.state.searchParam);
-    //     //console.log(+result.userInput.rxcui);
-    //     this.setState({ loading: false });
-    //     let filteredResult;
-    //     let displayResult = [];
-    //     if (result) {
-    //         filteredResult = +result.userInput.rxcui ? result.interactionTypeGroup[0].interactionType[0].interactionPair.filter(drug => this.props.drugs.includes(drug.interactionConcept[1].sourceConceptItem.name)) : null;
-    //         displayResult = filteredResult.map(drug => drug = {
-    //             name: drug.interactionConcept[1].sourceConceptItem.name,
-    //             description: drug.description
-    //         })
-    //     }
-    //     console.log(displayResult);
-    //     this.setState({ searchResult: displayResult })
-    
-
-    // shouldComponentUpdate(nextProps, nextState) {
-
-
-    // }
-
-    // async componentWillUpdate() {
-    //     //this.setState({ loading: true });
-    //     let result = await drugAPI.searchInteractions(this.state.searchParam);
-    //     //console.log(+result.userInput.rxcui);
-    //     //this.setState({ loading: false });
-    //     let filteredResult;
-    //     let displayResult = [];
-    //     if (result) {
-    //         filteredResult = result.interactionTypeGroup[0].interactionType[0].interactionPair.filter(drug => this.props.drugs.includes(drug.interactionConcept[1].sourceConceptItem.name));
-    //         displayResult = filteredResult.map(drug => drug = {
-    //             name: drug.interactionConcept[1].sourceConceptItem.name,
-    //             description: drug.description
-    //         });
-    //     }
-    //     console.log(displayResult);
-    //     this.setState({ searchResult: displayResult })
-    // }
-
     handleSearch = async (searchParam) => {
         this.setState({loading: true});
         console.log(searchParam);
