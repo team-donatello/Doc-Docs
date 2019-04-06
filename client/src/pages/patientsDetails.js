@@ -82,6 +82,7 @@ class PatientsDetails extends Component {
                         </h2>
                         
                         <Accordion
+                            id = {this.state.id}
                             name={this.state.name}
                             age={this.state.age}
                             gender={this.state.gender}

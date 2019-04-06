@@ -2,6 +2,8 @@ import React from "react";
 import { Accordion, AccordionItem } from 'react-light-accordion';
 import './style.css';
 import { Col, Row } from "../Grid";
+import InteractionModal from "../InteractionModal"
+
 
 function AccordionMain(props) {
     return (
@@ -13,12 +15,12 @@ function AccordionMain(props) {
 
             <div>
                 <style>
-            @import url('https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300');
+                    @import url('https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300');
             </style>
                 <Accordion atomic={true}>
-               
+
                     <AccordionItem title="General Information">
-                   
+
                         <Row>
                             <Col size="md-4 sm-4">
                                 <h4>Age : {props.age}</h4>
@@ -36,41 +38,51 @@ function AccordionMain(props) {
                     </AccordionItem>
 
                     <AccordionItem title="Medications & Conditions">
-                    <Row>
+                        <Row>
                             <Col size="md-6 sm-6">
-                                <h4>Medications : {props.medications}</h4>                                
+                                <h4>Medications:</h4>
+                                {props.medications.map(drug => <p>{drug}</p>)}
+                                <InteractionModal drugs={props.medications} _id = {props.id}/> 
+
                             </Col>
+
                             <Col size="md-6 sm-6">
-                                <h4>Conditions : {props.conditions}</h4>                                
-                            </Col>                            
+                                <h4>Conditions :</h4>
+                                {props.conditions.map(conditions => <p>{conditions}</p>)}
+                            </Col>
                         </Row>
-                        
+
                     </AccordionItem>
 
                     <AccordionItem title="Allergies & Surgeries">
-                    <Row>
+                        <Row>
                             <Col size="md-6 sm-6">
-                                <h4>Allergies : {props.allergies}</h4>                                
+                                <h4>Allergies : </h4>
+                                {props.allergies.map(allergy => <p>{allergy}</p>)}
                             </Col>
                             <Col size="md-6 sm-6">
-                                <h4>Surgeries : {props.surgeries}</h4>                                
-                            </Col>                            
+                                <h4>Surgeries : </h4>
+                                {props.surgeries.map(surgeries => <p>{surgeries}</p>)}
+                            </Col>
                         </Row>
                     </AccordionItem>
 
                     <AccordionItem title="Patient Personal Info">
-                    <Row>
+                        <Row>
                             <Col size="md-6 sm-6">
-                                <h4>Email : {props.email}</h4>                                
+                                <h4>Email : {props.email}</h4>
                             </Col>
                             <Col size="md-6 sm-6">
-                                <h4>Phone : {props.phone}</h4>                                
-                            </Col>                            
+                                <h4>Phone : {props.phone}</h4>
+                            </Col>
                         </Row>
                     </AccordionItem>
 
                 </Accordion>
             </div>
+
+
+
 
         </div>
     );

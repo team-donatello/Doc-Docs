@@ -8,22 +8,29 @@ import "../components/style/login.css";
 
 
 class Login extends Component {
-    state = {
-        doctors: [],
-        name: "",
-        username: "",
-        password: ""
+    constructor(props) {
+        super(props);
+        this.state = {
+            doctors: [],
+            name: "",
+            username: "",
+            password: ""
+        }
+        this.loadDoctors = this.loadDoctors.bind(this)
     }
 
-    componentDidMount() {
+    componentWillMount() {
         this.loadDoctors();
+        
     }
 
     loadDoctors = () => {
         API.getDoctors()
-            .then(res =>
+            .then(res => {
                 this.setState({ doctors: res.data, name: "", username: "", password: "" })
-            )
+                console.log(this.state.doctors)
+                
+            })
             .catch(err => console.log(err));
     }
     handleInputChange = event => {
