@@ -8,6 +8,7 @@ import Accordion from "../components/Accordion";
 class PatientsDetails extends Component {
 
     state = {
+        _id: "",
         patientScheduler: {},
         patient: [],
         patientAllDetail: {},
@@ -59,7 +60,8 @@ class PatientsDetails extends Component {
                         <h2>
                             {this.state.patient.filter(patientdetails => {
                                 if (patientdetails.name === this.state.patientScheduler.text) {
-                                    this.setState.patientAllDetail = patientdetails 
+                                    this.setState.patientAllDetail = patientdetails
+                                    this.state._id = patientdetails._id; 
                                     this.state.name = patientdetails.name
                                     this.state.age = patientdetails.age
                                     this.state.gender = patientdetails.gender
@@ -82,7 +84,7 @@ class PatientsDetails extends Component {
                         </h2>
                         
                         <Accordion
-                            id = {this.state.id}
+                            _id = {this.state._id}
                             name={this.state.name}
                             age={this.state.age}
                             gender={this.state.gender}
@@ -97,7 +99,6 @@ class PatientsDetails extends Component {
                             email= {this.state.email}
                             phone={this.state.phone}
                         >
-
                         </Accordion>
                               
                         {/* <Accordion></Accordion> */}

@@ -21,6 +21,9 @@ class InteractionModal extends React.Component {
         this.handleSearch = this.handleSearch.bind(this)
 
     }
+    componentDidMount(){
+        console.log(this.props);
+    }
     handleSearch = async (searchParam) => {
         this.setState({loading: true});
         console.log(searchParam);
@@ -47,8 +50,8 @@ class InteractionModal extends React.Component {
     }
 
     handleAdd = () => {
-        console.log(this.props.id);
-        API.updatePatient(this.props.id, this.state.searchParam);
+        console.log(typeof this.props._id);
+        API.updatePatient(this.props._id, this.state.searchParam);
     }
 
     handleOpen = () => {
@@ -75,8 +78,8 @@ class InteractionModal extends React.Component {
                             <div className="input-group">
                                 <input type="text" className="form-control" placeholder="Enter New Perscription" value={this.state.searchParam} onChange={this.handleSearchInputChange} />
                                 
-                                    <button className="btn btn-default" id="add" onClick={this.handleAdd}>
-                                        <i className="glyphicon glyphicon-plus" />
+                                    <button id="add" onClick={this.handleAdd}>
+                                        Add
                                     </button>
                             </div>
                             
