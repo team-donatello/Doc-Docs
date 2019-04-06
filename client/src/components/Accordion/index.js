@@ -42,7 +42,7 @@ function AccordionMain(props) {
                             <Col size="md-6 sm-6">
                                 <h4>Medications:</h4>
                                 {props.medications.map(drug => <p>{drug}</p>)}
-                                <InteractionModal drugs={props.medications} _id = {props.id}/> 
+                                <InteractionModal drugs={props.medications} _id = {props._id}/> 
 
                             </Col>
 
