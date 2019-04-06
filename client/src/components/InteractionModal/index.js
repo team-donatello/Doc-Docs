@@ -41,13 +41,8 @@ class InteractionModal extends React.Component {
     }
 
     handleSearchInputChange = (e) => {
-        const target = e.target;
-        const value = target.value;
-
-        if (value) {
-            this.setState({ searchParam: value })
-            this.handleSearch(value);
-        }
+        this.setState({ searchParam: e.target.value })
+        this.handleSearch(e.target.value);
 
     }
 
