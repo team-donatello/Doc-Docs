@@ -2,6 +2,7 @@ import React from "react";
 import drugAPI from "../../utils/drugAPI";
 import API from "../../utils/API";
 import Modal from "../test_Modal";
+import mongoose from "mongoose";
 
 
 class InteractionModal extends React.Component {
@@ -50,8 +51,10 @@ class InteractionModal extends React.Component {
     }
 
     handleAdd = () => {
-        console.log(typeof this.props._id);
-        API.updatePatient(this.props._id, this.state.searchParam);
+        console.log(this.props._id)
+        let id = mongoose.Types.ObjectId(this.props._id);
+        console.log(id);
+        API.updatePatient(id, this.state.searchParam);
     }
 
     handleOpen = () => {

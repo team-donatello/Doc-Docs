@@ -23,7 +23,7 @@ module.exports = {
   },
   update: function(req, res) {
     db.Patient
-      .findOneAndUpdate({ _id: req.params.id }, {$push : {medications: req}})
+      .findOneAndUpdate({ _id: req.params.id }, {$push : {medications: req.params.body}})
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },

@@ -171,6 +171,7 @@ class AddPatient extends Component {
                             onEventMoved={args => {
                                 console.log("Event moved: ", args.e.data.id, args.newStart, args.newEnd, args.newResource);
                                 this.scheduler.message("Appointment Change : " + args.e.data.text +"  Date : "+ args.newEnd);
+                                console.log(typeof args.e.data.id);
                                 API.updateScheduler(args.e.data.id,
                                     {                                                         
                                     start: args.newEnd,
